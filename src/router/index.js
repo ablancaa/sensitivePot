@@ -1,11 +1,35 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import Register from '../views/Register.vue'
+import Sensores from '../views/Sensores.vue'
+import Database from '../components/prueba.vue'
+import Login from '../views/Login.vue'
+Sensores-1
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/Register',
+    name: 'Register',
+    component: Register
+  },
+  {
+    path: '/Sensores',
+    name: 'Sensores-1',
+    component: Sensores
+  },
+  {
+    path: '/Database',
+    name: 'Database',
+    component: Database
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: Login
   },
   {
     path: '/about',
