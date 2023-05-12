@@ -7,6 +7,6 @@ import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.js'
 import axios from 'axios';
 //import { auth } from '@/utils/firebase.js';
 import 'firebase/database'
-import "firebase/auth";
 
-createApp(App).use(router, bootstrap, axios).mount('#app')
+
+createApp(App).use(router, bootstrap,  axios).mount('#app')

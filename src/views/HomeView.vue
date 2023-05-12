@@ -42,11 +42,16 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-md-6">
+                      <p v-for="(item , index) in lista" :key="index"> {{ item.valores.temperatura }}</p>
+                      
                     </div>
-                    <div class="col-md-12">
-                      <li v-for="(item , index) in todos" :key="index" >{{item.id}}: {{item.$value}}</li>
-                    </div>
+                    <div class="col-md-6">
+                      <p v-for="(item , index) in lista" :key="index"> {{ item.valores.humedad }}</p>
+                          
+                      </div>
                   </div>
+                  
+                  <!-- {{ lista }} -->
                 </div>
               </ul>
               <br />
@@ -64,16 +69,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="sensores">
-
-         <div class="row">
-            <div class="col-md-4"> <h4>Humedad</h4><Card/></div>
-            <div class="col-md-4"> <h4>Temperatura</h4> <Card/></div>
-            <div class="col-md-4"> <h4>Humedad de la Tierra</h4><Card/></div>
-        </div> 
-      </div> -->
-
     </div>
     <br /><br />
   </div>
@@ -89,7 +84,7 @@ import CardTemperatura from '/src/components/CardTemperatura.vue';
 import Reloj from '/src/components/Reloj.vue'
 import { initializeApp } from 'firebase/app'
 import { getDatabase, ref as dbRef } from 'firebase/database'
-import { useDatabaseList } from 'vuefire'
+import { useDatabaseList} from 'vuefire'
 
 
 /*const firebase = initializeApp({ databaseURL: "https://sensitivepot-d0ada-default-rtdb.europe-west1.firebasedatabase.app", })
@@ -104,7 +99,16 @@ export default {
   name: 'HomeView',
   components: { Reloj, CardHumedad, CardHumedadTierra, CardTemperatura },
   setup() {
-    const firebase = initializeApp({ databaseURL: "https://sensitivepot-d0ada-default-rtdb.europe-west1.firebasedatabase.app",})
+    const firebase = initializeApp({  
+      apiKey: "AIzaSyAq47EHEvsvaqfHTczfl5eaObErq857zs8",
+      authDomain: "sensitivepot-d0ada.firebaseapp.com",
+      projectId: "sensitivepot-d0ada",
+      storageBucket: "sensitivepot-d0ada.appspot.com",
+      messagingSenderId: "108383124629",
+      appId: "1:108383124629:web:57100d4a065dde146bef9c",
+      databaseURL: "https://sensitivepot-d0ada-default-rtdb.europe-west1.firebasedatabase.app/",
+    })
+    
     const db = getDatabase(firebase)
  
     const todosRef = dbRef(db, 'test')
@@ -112,12 +116,9 @@ export default {
     const sensitivePot = "Sensitive Pot";
     const img = "http://localhost/src/assets/logo.png";
     let lista = ref([]);
-
-    console.log("Hola mundo")
-
-
-
-
+    
+    lista = todos.data.value;   
+    
 
     return { sensitivePot, img, Reloj, CardHumedad, CardHumedadTierra, CardTemperatura, lista, todos };
   }

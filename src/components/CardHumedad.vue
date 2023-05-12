@@ -7,7 +7,7 @@
     <li>{{ datos.$value }}</li> -->
     <!-- <p v-for="item in datos" :key="item">{{ item.id }}</p> -->
     <p class="card-text"></p>
-    <a href="#" class="btn btn-primary"> {{ datos[0].$value }}</a>
+    <!-- <a href="#" class="btn btn-primary"> {{ datos[0].$value }}</a> -->
   </div>
  </div>
 </div>
@@ -15,7 +15,7 @@
 
 <script setup>
 //import { ref } from 'vue'
-import { initializeApp } from 'firebase/app'
+/*import { initializeApp } from 'firebase/app'
 import { getDatabase, ref as dbRef } from 'firebase/database'
 import { useDatabaseList } from 'vuefire'
 
@@ -23,8 +23,8 @@ import { useDatabaseList } from 'vuefire'
   const db = getDatabase(firebase)
   const todosRef = dbRef(db, 'test')
   let datos = useDatabaseList(todosRef)
-  
-
+ 
+*/
   /* Formato largo */
   /*onMounted(() => {
 
