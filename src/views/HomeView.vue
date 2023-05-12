@@ -112,8 +112,8 @@ export default {
     const sensitivePot = "Sensitive Pot";
     const img = "http://localhost/src/assets/logo.png";
     let lista = ref([]);
-    
-   
+
+    console.log("Hola mundo")
 
 
 
