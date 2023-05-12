@@ -44,7 +44,7 @@
                     <div class="col-md-6">
                     </div>
                     <div class="col-md-12">
-                      <li v-for="(item , index) in todos" :key="index" >{{item.id}}: {{item.$value}}</li>
+                      <li v-for="(item , index) in todos" :key="index" >{{item}}</li>
                     </div>
                   </div>
                 </div>
