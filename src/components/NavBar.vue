@@ -28,6 +28,9 @@
           <li class="nav-item">
             <router-link to="/Sensores" class="nav-link active" aria-current="page">Sensores Utilizados</router-link>
           </li>
+          <li class="nav-item">
+            <router-link to="/Registros" class="nav-link active" aria-current="page">Registros</router-link>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Mediciones

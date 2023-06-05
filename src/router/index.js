@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import Register from '../views/Register.vue'
 import Sensores from '../views/Sensores.vue'
 import Database from '../components/prueba.vue'
+import Registros from '../components/Registros.vue'
 import Login from '../views/Login.vue'
 Sensores-1
 const routes = [
@@ -30,6 +31,11 @@ const routes = [
     path: '/Login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/Registros',
+    name: 'Registros',
+    component: Registros
   },
   {
     path: '/about',

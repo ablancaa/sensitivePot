@@ -1,4 +1,5 @@
 <template>
+  <div id="todo">
   <div class="contenido">
     <div class="row">
       <div class="col-md-12">
@@ -7,74 +8,42 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <h4></h4> <img src="../assets/maceta.jpg" height="" class="polaroid" />
+
+        <h4></h4> <img src="../assets/faces/1.png" height="" class="polaroid" />
       </div>
       <div class="col-md-6">
         <h4></h4>
+        
         <div class="marcoReloj">
           <Reloj />
         </div>
-        <div class="card text-center sensores">
-          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
-                type="button" role="tab" aria-controls="pills-home" aria-selected="true">Estado</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
-                type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Temp.&ordf;</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
-                type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Humd.ambiente</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-other-tab" data-bs-toggle="pill" data-bs-target="#pills-other"
-                type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Humed. tierra</button>
-            </li>
-            <!-- <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-luz-tab" data-bs-toggle="pill" data-bs-target="#pills-luz" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Luz</button>
-            </li> -->
-          </ul>
-          <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-              <ul>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-6">
-                    </div>
-                    <div class="col-md-12">
-                      <li v-for="(item , index) in todos" :key="index" >{{item}}</li>
-                    </div>
-                  </div>
-                </div>
-              </ul>
-              <br />
-            </div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-              <CardTemperatura /><br />
-            </div>
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-              <CardHumedad /><br />
-            </div>
-            <div class="tab-pane fade" id="pills-other" role="tabpanel" aria-labelledby="pills-other-tab">
-              <CardHumedadTierra /><br />
-            </div>
-            <!-- <div class="tab-pane fade" id="pills-luz" role="tabpanel" aria-labelledby="pills-luz-tab"><CardLuz/><br/></div> -->
-          </div>
+      
+          
+        
+
+
         </div>
       </div>
-
-      <!-- <div class="sensores">
-
-         <div class="row">
-            <div class="col-md-4"> <h4>Humedad</h4><Card/></div>
-            <div class="col-md-4"> <h4>Temperatura</h4> <Card/></div>
-            <div class="col-md-4"> <h4>Humedad de la Tierra</h4><Card/></div>
-        </div> 
-      </div> -->
-
     </div>
+    <br/>
+    <div class="container">
+          <table>
+        <tr>
+            <td>DIA</td>
+            <td>Temperatura Ambiente</td>
+            <td>Humedad Ambiente</td>
+            <td>Humedad Tierra</td>
+            <td>Luz Ambiente</td>
+        </tr>
+        <tr v-for="registro in registros" :key="registro.id">
+            <td>{{registro.dia }}</td>
+            <td>{{registro.tempAmb }}</td>
+            <td>{{registro.humAmb }}</td>
+            <td>{{registro.humTer }}</td>
+            <td>{{registro.luzAmb }}</td>
+        </tr>
+      </table>
+        </div>
     <br /><br />
   </div>
 </template>
@@ -82,7 +51,7 @@
 
 
 <script>
-import { ref } from 'vue';
+import { ref,onMounted} from 'vue';
 import CardHumedad from '/src/components/CardHumedad.vue';
 import CardHumedadTierra from '/src/components/CardHumedadTierra.vue';
 import CardTemperatura from '/src/components/CardTemperatura.vue';
@@ -90,7 +59,7 @@ import Reloj from '/src/components/Reloj.vue'
 import { initializeApp } from 'firebase/app'
 import { getDatabase, ref as dbRef } from 'firebase/database'
 import { useDatabaseList } from 'vuefire'
-
+import axios from 'axios';
 
 /*const firebase = initializeApp({ databaseURL: "https://sensitivepot-d0ada-default-rtdb.europe-west1.firebasedatabase.app", })
     const db = getDatabase(firebase)
@@ -99,34 +68,75 @@ import { useDatabaseList } from 'vuefire'
 //import {firebaseConfig } from '../utils/firebase.js'
 
 
-  
+
 export default {
   name: 'HomeView',
-  components: { Reloj, CardHumedad, CardHumedadTierra, CardTemperatura },
+  components: { Reloj },
   setup() {
-    const firebase = initializeApp({ databaseURL: "https://sensitivepot-d0ada-default-rtdb.europe-west1.firebasedatabase.app",})
+    const firebase = initializeApp({ databaseURL: "https://sensitivepot-d0ada-default-rtdb.europe-west1.firebasedatabase.app", })
     const db = getDatabase(firebase)
- 
+
     const todosRef = dbRef(db, 'test')
     const todos = useDatabaseList(todosRef)
+    //const todos = useDatabaseObject(todosRef)
     const sensitivePot = "Sensitive Pot";
     const img = "http://localhost/src/assets/logo.png";
-    let lista = ref([]);
+    let lista = ref([todos.data.value]);
+    let registros = ref([])
+    let estates = ref([]);
+    onMounted(() => {
+     fetchEstados();
+     fetchRegistros();
+    })
+    const fetchEstados = () =>{
+        axios.get('/estado')
+          .then(response => {
+           estates.value = response.data;
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      };
+      const fetchRegistros = () =>{
+        axios.get('/dades')
+          .then(response => {
+           registros.value = response.data;
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      };
 
-    console.log("Hola mundo")
-
-
-
-
-
-    return { sensitivePot, img, Reloj, CardHumedad, CardHumedadTierra, CardTemperatura, lista, todos };
+    
+  
+    return { sensitivePot, img, Reloj, CardHumedad, CardHumedadTierra, CardTemperatura, lista, todos, estates, registros };
   }
 
 }
 </script>
 <style scoped>
+#todo {
+  border-radius: 15px;
+  background-image: url('../assets/jardin.jpg');
+  background-size: 100%;
+  
+}
 .contenido {
   margin-top: 70px;
+  
+}
+table{
+  border-radius: 15px;
+  color: rgb(0, 0, 0);
+  border: 3px solid;
+}
+td{
+  border-block: 2px solid;
+  font-size: 16px;
+}
+tr{
+  border: 4px solid;
+  font-size: 16px;
 }
 
 .centerCard {}
@@ -141,7 +151,7 @@ li {
 }
 
 .polaroid {
-  height: 350px;
+  height: 300px;
   background-color: white;
   padding: 10px 10px 50px 10px;
   border: 1px solid #BFBFBF;
@@ -149,6 +159,8 @@ li {
 }
 
 .marcoReloj {
+  margin-right: 15px;
+  margin-top: 85px;
   background-color: #2c2c2c;
   border-radius: 20px;
   border: 5px solid #BFBFBF;
