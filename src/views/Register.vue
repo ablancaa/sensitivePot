@@ -33,10 +33,9 @@
 import router from '../router';
 import { ref } from 'vue';
 import {getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-
+//import { initializeApp } from 'firebase/app'
         const email = ref("");
         const password = ref("");
-        
         const register = () => {
             
             createUserWithEmailAndPassword(getAuth(), email.value, password.value)

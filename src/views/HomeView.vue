@@ -56,9 +56,9 @@ import CardHumedad from '/src/components/CardHumedad.vue';
 import CardHumedadTierra from '/src/components/CardHumedadTierra.vue';
 import CardTemperatura from '/src/components/CardTemperatura.vue';
 import Reloj from '/src/components/Reloj.vue'
-import { initializeApp } from 'firebase/app'
-import { getDatabase, ref as dbRef } from 'firebase/database'
-import { useDatabaseList } from 'vuefire'
+//import { initializeApp } from 'firebase/app'
+//import { getDatabase, ref as dbRef } from 'firebase/database'
+//import { useDatabaseList } from 'vuefire'
 import axios from 'axios';
 
 /*const firebase = initializeApp({ databaseURL: "https://sensitivepot-d0ada-default-rtdb.europe-west1.firebasedatabase.app", })
@@ -73,15 +73,15 @@ export default {
   name: 'HomeView',
   components: { Reloj },
   setup() {
-    const firebase = initializeApp({ databaseURL: "https://sensitivepot-d0ada-default-rtdb.europe-west1.firebasedatabase.app", })
-    const db = getDatabase(firebase)
+    //const firebase = initializeApp({ databaseURL: "https://sensitivepot-d0ada-default-rtdb.europe-west1.firebasedatabase.app", })
+    //const db = getDatabase(firebase)
 
-    const todosRef = dbRef(db, 'test')
-    const todos = useDatabaseList(todosRef)
+    //const todosRef = dbRef(db, 'test')
+    //const todos = useDatabaseList(todosRef)
     //const todos = useDatabaseObject(todosRef)
     const sensitivePot = "Sensitive Pot";
     const img = "http://localhost/src/assets/logo.png";
-    let lista = ref([todos.data.value]);
+    //let lista = ref([todos.data.value]);
     let registros = ref([])
     let estates = ref([]);
     onMounted(() => {
@@ -109,7 +109,7 @@ export default {
 
     
   
-    return { sensitivePot, img, Reloj, CardHumedad, CardHumedadTierra, CardTemperatura, lista, todos, estates, registros };
+    return { sensitivePot, img, Reloj, CardHumedad, CardHumedadTierra, CardTemperatura,  estates, registros };
   }
 
 }

@@ -29,8 +29,8 @@
 <script setup>
 import router from '../router';
 import { ref } from 'vue';
-
-import {getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../utils/firebase.js';
+import {signInWithEmailAndPassword } from 'firebase/auth';
 import "firebase/auth";
 
         const email = ref("");
@@ -38,8 +38,8 @@ import "firebase/auth";
         
         
         const register = () => {
-          const auth = getAuth();
-            signInWithEmailAndPassword(getAuth(), email.value, password.value)
+          //const auth = getAuth();
+            signInWithEmailAndPassword(auth, email.value, password.value)
             .then((data)=> {
                 console.log("Successfully registered!");
                 console.log(auth.currentUser);

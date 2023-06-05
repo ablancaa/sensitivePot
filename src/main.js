@@ -10,6 +10,6 @@ axios.defaults.baseURL = 'http://localhost:3000/api'
 
 //import { auth } from '@/utils/firebase.js';
 import 'firebase/database'
-import "firebase/auth";
+//import "firebase/auth";
 
 createApp(App).use(router, bootstrap, axios).mount('#app')
