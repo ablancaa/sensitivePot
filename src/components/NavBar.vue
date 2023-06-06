@@ -1,7 +1,7 @@
 <template>
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <router-link to="/" class="nav-link active" aria-current="page"><a class="navbar-brand" href="#">Sensitive Pot</a></router-link>
+    <router-link to="/" class="nav-link active" aria-current="page"><a class="navbar-brand" href="#">Sensitive Pot </a></router-link>
   
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,11 +11,13 @@
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Sensitive Pot Menú</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
+      
       <div class="offcanvas-body">
+        <li class="nav-item"></li>
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
             <router-link to="/" class="nav-link active" aria-current="page" href="#"> <a class="nav-link active" aria-current="page" href="#">Home</a></router-link>
-          </li>
+            </li>
           <li class="nav-item">
             <router-link to="/Login" class="nav-link active" aria-current="page">Login</router-link>
           </li>
@@ -29,8 +31,15 @@
             <router-link to="/Sensores" class="nav-link active" aria-current="page">Sensores Utilizados</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/Registros" class="nav-link active" aria-current="page">Registros</router-link>
+            <router-link to="/Registros" class="nav-link active" aria-current="page">Tabla de Registro de Sensores</router-link>
           </li>
+          <li class="nav-item">
+            <router-link to="/Registros" class="nav-link active" aria-current="page">Galería Fotografías</router-link>
+          </li>
+          <li class="nav-item">
+            <a href="https://eljardinencasa.com/diccionario-de-jardineria/glosario/" class="nav-link active" aria-current="page">Diccionario de Jardinería</a>
+          </li>
+          
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Mediciones
@@ -56,14 +65,19 @@
 </template>
 
 <script>
-//import {getAuth} from 'firebase/auth';
+import {getAuth} from 'firebase/auth';
 export default {
 
     setup () {
+     
+const auth = getAuth();
+const user = auth.currentUser
+localStorage.setItem('user', user);
+let usuario = localStorage.user;
       //  const auth = getAuth();
        // const usuarioLogado = auth.currentUser;
 
-        return {}
+        return { user, usuario}
     }
 }
 </script>

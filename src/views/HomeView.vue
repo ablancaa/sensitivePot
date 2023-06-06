@@ -17,18 +17,27 @@
         <div class="marcoReloj">
           <Reloj />
         </div>
-      
-          
-        
-
-
         </div>
       </div>
     </div>
     <br/>
     <div class="container">
+      <div>
+        <!-- <p>ID - DIa</p>
+        <p v-for="ultim in ultimo[0]" :key="ultim.id">
+          
+        {{ ultim }} 
+      </p> -->
+   
+        <!-- <p v>{{ ultimo[0] }}</p> -->
+    <!-- <p v-for="medida in medicion" :key="medida.id">{{ medicion[0].id }}
+      {{ medicion[0].tempAmb }}
+    </p> -->
+        
+      </div>
           <table>
         <tr>
+            <td>ID</td>
             <td>DIA</td>
             <td>Temperatura Ambiente</td>
             <td>Humedad Ambiente</td>
@@ -36,6 +45,7 @@
             <td>Luz Ambiente</td>
         </tr>
         <tr v-for="registro in registros" :key="registro.id">
+            <td>{{registro.id }}</td>
             <td>{{registro.dia }}</td>
             <td>{{registro.tempAmb }}</td>
             <td>{{registro.humAmb }}</td>
@@ -48,24 +58,15 @@
   </div>
 </template>
 
-
-
 <script>
-import { ref,onMounted} from 'vue';
+import { ref,onMounted, computed } from 'vue';
 import CardHumedad from '/src/components/CardHumedad.vue';
 import CardHumedadTierra from '/src/components/CardHumedadTierra.vue';
 import CardTemperatura from '/src/components/CardTemperatura.vue';
 import Reloj from '/src/components/Reloj.vue'
-//import { initializeApp } from 'firebase/app'
-//import { getDatabase, ref as dbRef } from 'firebase/database'
-//import { useDatabaseList } from 'vuefire'
+
 import axios from 'axios';
 
-/*const firebase = initializeApp({ databaseURL: "https://sensitivepot-d0ada-default-rtdb.europe-west1.firebasedatabase.app", })
-    const db = getDatabase(firebase)
-    const todosRef = dbRef(db, 'test')
-    const todos = useDatabaseList(todosRef)*/
-//import {firebaseConfig } from '../utils/firebase.js'
 
 
 
@@ -73,43 +74,73 @@ export default {
   name: 'HomeView',
   components: { Reloj },
   setup() {
-    //const firebase = initializeApp({ databaseURL: "https://sensitivepot-d0ada-default-rtdb.europe-west1.firebasedatabase.app", })
-    //const db = getDatabase(firebase)
-
-    //const todosRef = dbRef(db, 'test')
-    //const todos = useDatabaseList(todosRef)
-    //const todos = useDatabaseObject(todosRef)
+  
     const sensitivePot = "Sensitive Pot";
     const img = "http://localhost/src/assets/logo.png";
-    //let lista = ref([todos.data.value]);
-    let registros = ref([])
+    
+    let registros = ref([]);
     let estates = ref([]);
+    let medicion = ref([]);
+    let ultimo = ref([]);
+    
     onMounted(() => {
+     ultimaMedicion();
      fetchEstados();
      fetchRegistros();
     })
+
+  
+
+    computed(() => {
+      location.reload();
+      return ultimaMedicion();
+    })
+    
     const fetchEstados = () =>{
         axios.get('/estado')
           .then(response => {
            estates.value = response.data;
+           
           })
           .catch(error => {
             console.error(error);
           });
       };
+      
       const fetchRegistros = () =>{
         axios.get('/dades')
           .then(response => {
            registros.value = response.data;
+           ultimo.value = registros.value.reverse();
+           
           })
           .catch(error => {
             console.error(error);
           });
       };
 
-    
-  
-    return { sensitivePot, img, Reloj, CardHumedad, CardHumedadTierra, CardTemperatura,  estates, registros };
+      const ultimaMedicion = () => {
+        axios.get('/dades')
+          .then(response => {
+            
+           medicion.value = response.data;
+           medicion.value.reverse();
+           console.log("Último registro: "+Object.keys(response.data).length);
+           ultimo.value=Object.keys(response.data).length;
+           console.log(ultimo.value);
+
+          })
+          .catch(error => {
+            console.error(error);
+          });
+
+      }
+      const ult = () => {
+        console.log(ultimo.value)
+      }
+
+     
+    return { sensitivePot, img, Reloj, CardHumedad, CardHumedadTierra, CardTemperatura,  estates, registros, medicion, ultimo, ult };
   }
 
 }

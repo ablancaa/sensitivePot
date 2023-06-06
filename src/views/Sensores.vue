@@ -3,13 +3,16 @@
     <h1>Sensores de Sensitive Pot</h1>
         <div class="row">
                 <div class="col-md-4">
-                    <img src="../assets/maceta.jpg" height="200" class="" />
+                    <img src="../assets/sensores/humedadTierra.jpg" height="200" class="" />
                 </div>
                 <div class="col-md-4">
-                    <img src="../assets/maceta.jpg" height="200" class="" />
+                    <img src="../assets/sensores/todosloscomponentes.jpg" height="200" class="" />
                 </div>
                 <div class="col-md-4">
-                    <img src="../assets/maceta.jpg" height="200" class="" />
+                    <img src="../assets/sensores/ESP8266-WeMos.webp" height="200" class="" />
+                </div>
+                <div class="col-md-4">
+                    <img src="../assets/sensores/placa-d1-mini-esp8266.jpg" height="200" class="" />
                 </div>
             </div>
         </div>
