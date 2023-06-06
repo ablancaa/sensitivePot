@@ -4,6 +4,7 @@ import Register from '../views/Register.vue'
 import Sensores from '../views/Sensores.vue'
 import Database from '../components/prueba.vue'
 import Registros from '../components/Registros.vue'
+import Galeria from '../views/Galeria.vue'
 import Login from '../views/Login.vue'
 Sensores-1
 const routes = [
@@ -36,6 +37,11 @@ const routes = [
     path: '/Registros',
     name: 'Registros',
     component: Registros
+  },
+  {
+    path: '/Galeria',
+    name: 'Galeria',
+    component: Galeria
   },
   {
     path: '/about',

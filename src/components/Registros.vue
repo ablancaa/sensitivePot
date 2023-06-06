@@ -17,6 +17,7 @@
       <br/>
       <table>
         <tr>
+            <td>ID</td>
             <td>DIA</td>
             <td>Temperatura Ambiente</td>
             <td>Humedad Ambiente</td>
@@ -24,6 +25,7 @@
             <td>Luz Ambiente</td>
         </tr>
         <tr v-for="registro in registros" :key="registro.id">
+            <td>{{registro.id }}</td>
             <td>{{registro.dia }}</td>
             <td>{{registro.tempAmb }}</td>
             <td>{{registro.humAmb }}</td>
@@ -61,6 +63,7 @@
         axios.get('/dades')
           .then(response => {
             this.registros = response.data;
+            this.registros.reverse();
           })
           .catch(error => {
             console.error(error);
@@ -70,6 +73,7 @@
         axios.get('/estado')
           .then(response => {
             this.estados = response.data;
+            
           })
           .catch(error => {
             console.error(error);

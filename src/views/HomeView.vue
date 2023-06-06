@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-md-6">
 
-        <h4></h4> <img src="../assets/faces/1.png" height="" class="polaroid" />
+        <h4></h4> <img src="../assets/faces/6.png" height="" class="polaroid" />
       </div>
       <div class="col-md-6">
         <h4></h4>

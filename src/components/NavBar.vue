@@ -13,7 +13,6 @@
       </div>
       
       <div class="offcanvas-body">
-        <li class="nav-item"></li>
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
             <router-link to="/" class="nav-link active" aria-current="page" href="#"> <a class="nav-link active" aria-current="page" href="#">Home</a></router-link>
@@ -34,7 +33,7 @@
             <router-link to="/Registros" class="nav-link active" aria-current="page">Tabla de Registro de Sensores</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/Registros" class="nav-link active" aria-current="page">Galería Fotografías</router-link>
+            <router-link to="/Galeria" class="nav-link active" aria-current="page">Galería Fotografías</router-link>
           </li>
           <li class="nav-item">
             <a href="https://eljardinencasa.com/diccionario-de-jardineria/glosario/" class="nav-link active" aria-current="page">Diccionario de Jardinería</a>
