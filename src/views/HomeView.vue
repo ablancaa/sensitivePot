@@ -97,7 +97,7 @@ export default {
     })
     
     const fetchEstados = () =>{
-        axios.get('/estado')
+        axios.get('http://clarys.ddns.net:3000/api/estado')
           .then(response => {
            estates.value = response.data;
            
@@ -108,7 +108,7 @@ export default {
       };
       
       const fetchRegistros = () =>{
-        axios.get('/dades')
+        axios.get('http://clarys.ddns.net:3000/api/dades')
           .then(response => {
            registros.value = response.data;
            ultimo.value = registros.value.reverse();
