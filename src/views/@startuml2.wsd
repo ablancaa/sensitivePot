@@ -1,0 +1,14 @@
+@startuml
+actor Usuario
+
+activate Usuario
+
+Usuario -> Category: getComponents()
+Category -> Category: search(texto)
+Category -> Searchable: search(texto)
+Searchable -> Component: matches(texto)
+Searchable --> Category: List<Component>
+Category --> Usuario: List<Component>
+
+deactivate Usuario
+@enduml

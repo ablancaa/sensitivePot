@@ -1,0 +1,44 @@
+@startuml
+interface Searchable {
+  + search(String text): List<Component>
+}
+
+abstract class Category {
+  - name: String
+  - description: String
+  - searchable: Searchable
+
+  + getComponents(): List<Component>
+  + setSearchStrategy(Searchable strategy)
+  + search(String text): List<Component>
+}
+
+class InternalCategory {
+  
+}
+
+class ExternalCategory {
+  
+}
+
+class Component {
+  - name: String
+  - description: String
+  - price: Integer
+  - stock: Integer
+}
+
+interface ICategory { 
+  + getComponents(): List<Component>
+  + getName(): String
+  + getDescription(): String
+}
+
+Category ..|> ICategory
+ExternalCategory ..|> Category
+InternalCategory ..|> Category
+Component "*"--"1" Category
+Category ..> Searchable
+
+@enduml
+

@@ -36,6 +36,9 @@
             <router-link to="/Galeria" class="nav-link active" aria-current="page">Galería Fotografías</router-link>
           </li>
           <li class="nav-item">
+            <router-link to="/Graficos" class="nav-link active" aria-current="page">Gráficos</router-link>
+          </li>
+          <li class="nav-item">
             <a href="https://eljardinencasa.com/diccionario-de-jardineria/glosario/" class="nav-link active" aria-current="page">Diccionario de Jardinería</a>
           </li>
           

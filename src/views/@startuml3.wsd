@@ -1,0 +1,17 @@
+@startuml
+actor User
+participant Client
+participant Category
+participant Searchable
+participant ConcreteSearchStrategy
+
+User -> Client: Realiza búsqueda de componentes en una categoría
+Client -> Category: search(text: String)
+Category -> Category: setSearchStrategy(strategy: Searchable)
+Category -> Searchable: search(text)
+Searchable -> ConcreteSearchStrategy: search(text)
+ConcreteSearchStrategy --> Category: Lista de componentes encontrados
+Category --> Client: Lista de componentes encontrados
+Client --> User: Lista de componentes encontrados
+@enduml
+

@@ -6,6 +6,7 @@ import Database from '../components/prueba.vue'
 import Registros from '../components/Registros.vue'
 import Galeria from '../views/Galeria.vue'
 import Login from '../views/Login.vue'
+import Graficos from '../views/Graficos.vue'
 Sensores-1
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: '/Galeria',
     name: 'Galeria',
     component: Galeria
+  },
+  {
+    path: '/Graficos',
+    name: 'Graficos',
+    component: Graficos
   },
   {
     path: '/about',
