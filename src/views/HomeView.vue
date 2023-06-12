@@ -1,7 +1,7 @@
 <template>
   <div id="todo">
     <div class="contenido">
-      <h1>Home</h1>
+      <h1></h1>
       <div class="row">
 
         <div class="col-md-12">
@@ -348,6 +348,7 @@ li {
 }
 
 .polaroid {
+  margin-bottom: 15px;
   height: 200px;
   background-color: white;
   padding: 10px 10px 50px 10px;
@@ -357,7 +358,7 @@ li {
 
 .marcoReloj {
 
-  margin-top: 20px;
+  margin-top: 30px;
   background-color: #2c2c2c;
   border-radius: 20px;
   border: 5px solid #bfbfbf;
