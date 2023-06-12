@@ -18,31 +18,33 @@
             <router-link to="/" class="nav-link active" aria-current="page" href="#"> <a class="nav-link active" aria-current="page" href="#">Home</a></router-link>
             </li>
           <li class="nav-item">
+            <router-link to="/Graficos" class="nav-link active" aria-current="page">Gráficos</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/Registros" class="nav-link active" aria-current="page">Tabla de Registros</router-link>
+          </li>
+          <li class="nav-item">
             <router-link to="/Login" class="nav-link active" aria-current="page">Login</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/Register" class="nav-link active" aria-current="page">Registro de usuario</router-link>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link to="/Database" class="nav-link active" aria-current="page">Database</router-link>
-          </li>
+          </li> -->
           <li class="nav-item">
             <router-link to="/Sensores" class="nav-link active" aria-current="page">Sensores Utilizados</router-link>
           </li>
-          <li class="nav-item">
-            <router-link to="/Registros" class="nav-link active" aria-current="page">Tabla de Registro de Sensores</router-link>
-          </li>
+          
           <li class="nav-item">
             <router-link to="/Galeria" class="nav-link active" aria-current="page">Galería Fotografías</router-link>
           </li>
-          <li class="nav-item">
-            <router-link to="/Graficos" class="nav-link active" aria-current="page">Gráficos</router-link>
-          </li>
+          
           <li class="nav-item">
             <a href="https://eljardinencasa.com/diccionario-de-jardineria/glosario/" class="nav-link active" aria-current="page">Diccionario de Jardinería</a>
           </li>
           
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Mediciones
             </a>
@@ -54,7 +56,7 @@
               </li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
-          </li>
+          </li> -->
         </ul>
         <!-- <form class="d-flex mt-3" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

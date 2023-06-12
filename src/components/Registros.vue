@@ -6,27 +6,25 @@
         <div>
             <h1>Registros</h1>
             <div v-for="estado in estados" :key="estado.id">
-              <img src="../assets/faces/1.png" v-if="estado.estado == 1"/>
-              <img src="../assets/faces/2.png" v-if="estado.estado == 2"/>
-              <img src="../assets/faces/3.png" v-if="estado.estado == 3"/>
-              <img src="../assets/faces/4.png" v-if="estado.estado == 4"/>
-              <img src="../assets/faces/5.png" v-if="estado.estado == 5"/>
-              <img src="../assets/faces/6.png" v-if="estado.estado == 6"/>
+              <img src="../assets/faces/1.png" v-if="estado.estado == 1" class="polaroid" height="200"/>
+              <img src="../assets/faces/2.png" v-if="estado.estado == 2" class="polaroid" height="200"/>
+              <img src="../assets/faces/3.png" v-if="estado.estado == 3" class="polaroid" height="200"/>
+              <img src="../assets/faces/4.png" v-if="estado.estado == 4" class="polaroid" height="200"/>
+              <img src="../assets/faces/5.png" v-if="estado.estado == 5" class="polaroid" height="200"/>
+              <img src="../assets/faces/6.png" v-if="estado.estado == 6" class="polaroid" height="200"/>
               </div>
             </div>
       <br/>
       <table>
         <tr>
-            <td>ID</td>
-            <td>DIA</td>
+            <td>Hora</td>
             <td>Temperatura Ambiente</td>
             <td>Humedad Ambiente</td>
             <td>Humedad Tierra</td>
             <td>Luz Ambiente</td>
         </tr>
         <tr v-for="registro in registros" :key="registro.id">
-            <td>{{registro.id }}</td>
-            <td>{{registro.dia }}</td>
+            <td>{{registro.hora }}</td>
             <td>{{registro.tempAmb }}</td>
             <td>{{registro.humAmb }}</td>
             <td>{{registro.humTer }}</td>
@@ -50,17 +48,14 @@
     mounted() {
       this.fetchRegistros();
       this.cara1 = this.fetchEstados();
-     
-      //setTimeout(this.$forceUpdate(), 5000)
     },
     computed(){
      this.estados = this.fetchEstados()
-    
      this.actualizar();
     },
     methods: {
       fetchRegistros() {
-        axios.get('/dades')
+        axios.get('http://clarys.ddns.net:3000/api/dades')
           .then(response => {
             this.registros = response.data;
             this.registros.reverse();
@@ -70,10 +65,9 @@
           });
       },
       fetchEstados() {
-        axios.get('/estado')
+        axios.get('http://clarys.ddns.net:3000/api/estado')
           .then(response => {
             this.estados = response.data;
-            
           })
           .catch(error => {
             console.error(error);
@@ -92,4 +86,12 @@
       width: 100%;
       border: 1px solid;
     }
+    .polaroid {
+  height: 140px;
+  background-color: white;
+  padding: 10px 10px 20px 10px;
+  border: 1px solid #bfbfbf;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
+  margin-top: 30px;
+}
   </style>

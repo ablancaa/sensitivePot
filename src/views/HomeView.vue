@@ -1,7 +1,9 @@
 <template>
   <div id="todo">
     <div class="contenido">
+      <h1>Home</h1>
       <div class="row">
+
         <div class="col-md-12">
           <h1>{{}}</h1>
         </div>
@@ -28,14 +30,37 @@
         <div class="col-md-6" v-if="este == 7">
           <img :src="cara7" height="" class="polaroid" alt="Cara de interfaz" />
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
           <h4></h4>
-
-          <div class="marcoReloj">
+          <div class="marcoReloj centrarGrafico">
             <Reloj />
           </div>
+          
+    </div>
+     
+
+      
+   </div>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 centrarGrafico">
+          <canvas id="myChart1"></canvas>
+        </div>
+        <div class="col-sm-12 col-md-6 centrarGrafico">
+          <canvas id="myChart2"></canvas>
+        </div>
+        <div class="col-sm-12 col-md-6 centrarGrafico">
+          <canvas id="myChart3"></canvas>
+        </div>
+        <div class="col-sm-12 col-md-6 centrarGrafico">
+          <canvas id="myChart4"></canvas>
         </div>
       </div>
+      
+   
     </div>
     <br />
     <div class="container">
@@ -44,8 +69,6 @@
       </div>
       <table>
         <tr>
-          <td>ID</td>
-          <td>Dia</td>
           <td>Hora</td>
           <td>Temperatura Ambiente</td>
           <td>Humedad Ambiente</td>
@@ -53,8 +76,6 @@
           <td>Luz Ambiente</td>
         </tr>
         <tr v-for="registro in registros" :key="registro.id">
-          <td>{{ registro.id }}</td>
-          <td>{{ registro.dia }}</td>
           <td>{{ registro.hora }}</td>
           <td>{{ registro.tempAmb }}</td>
           <td>{{ registro.humAmb }}</td>
@@ -63,8 +84,19 @@
         </tr>
       </table>
     </div>
-    <br /><br />
   </div>
+  
+    
+    
+    
+   
+
+   
+  
+   
+   <br /><br />
+ 
+
 </template>
 
 <script>
@@ -73,7 +105,7 @@ import CardHumedad from "/src/components/CardHumedad.vue";
 import CardHumedadTierra from "/src/components/CardHumedadTierra.vue";
 import CardTemperatura from "/src/components/CardTemperatura.vue";
 import Reloj from "/src/components/Reloj.vue";
-
+import Chart from 'chart.js/auto';
 import axios from "axios";
 
 export default {
@@ -95,14 +127,30 @@ export default {
     let cara6 = "http://clarys.ddns.net/faces/6.png";
     let cara7 = "http://clarys.ddns.net/faces/7.png";
     let este = ref();
+    let id = ref([]);
+    let tempAmb = ref([]);
+    let copyOfDynos = [];
+    let luz = [];
+    let humTierra = [];
+    let humAmbiente = [];
+    let horas = []
+    //const ctx1 = document.getElementById("temAmb");
+    //let ctx1 = document.getElementById("myChart1");
+
     onMounted(() => {
       fetchEstados();
       fetchRegistros();
-      setInterval("location.reload()", 20000);
+      pintaGraficaTempAmb();
+      pintaGraficaLuz();
+      pintaGraficaHumTer();
+      pintaGraficaHumAmb();
+
+      setInterval("location.reload()", 120000);
+      document.body.style.zoom = "99%";
     });
 
     const face = computed(() => {
-   
+
       return 1;
     });
 
@@ -126,11 +174,120 @@ export default {
         .then((response) => {
           registros.value = response.data;
           ultimo.value = registros.value.reverse();
+          for (let i = 0; i < registros.value.length; i++) {
+            horas[i] = ultimo.value[i].hora;
+            tempAmb.value = ultimo.value[i].tempAmb;
+            luz[i] = ultimo.value[i].luzAmb;
+            humTierra[i] = ultimo.value[i].humTer;
+            humAmbiente[i] = ultimo.value[i].humAmb;
+            copyOfDynos[i] = tempAmb.value;
+          }
+          copyOfDynos = copyOfDynos.concat(tempAmb.value)
         })
         .catch((error) => {
           console.error(error);
         });
     };
+    const pintaGraficaTempAmb = () => {
+
+      const ctx = document.getElementById("myChart1");
+
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: horas,
+          datasets: [{
+            display: true,
+            label: 'Temperatura Ambiente',
+            data: copyOfDynos,
+            borderColor: 'red',
+            pointStyle: 'rectRounded',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+    }
+    const pintaGraficaLuz = () => {
+
+      const ctx = document.getElementById("myChart2");
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: horas,
+          datasets: [{
+            label: 'Luz',
+            data: luz,
+            borderColor: 'orange',
+            borderWidth: 1
+
+          }],
+
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+    }
+    const pintaGraficaHumTer = () => {
+
+      const ctx = document.getElementById("myChart3");
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: horas,
+          datasets: [{
+            label: 'Humedad Tierra',
+            data: humTierra,
+            borderColor: 'green',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+    }
+    const pintaGraficaHumAmb = () => {
+
+      const ctx = document.getElementById("myChart4");
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: horas,
+          datasets: [{
+            label: 'Humedad Ambiente',
+            data: humAmbiente,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+    }
 
     return {
       sensitivePot, img, Reloj, CardHumedad, CardHumedadTierra, CardTemperatura, estates,
@@ -144,7 +301,7 @@ export default {
       cara6,
       cara7,
       face,
-      este
+      este, tempAmb, copyOfDynos, luz, humTierra, id
     };
   },
 };
@@ -154,29 +311,24 @@ export default {
   border-radius: 15px;
   background-image: url("../assets/jardin.jpg");
   background-size: 100%;
+  height: auto;
+
+}
+
+.titulo {
+  font-size: 20px;
+  background: #ff0000;
+  width: 20px;
 }
 
 .contenido {
   margin-top: 70px;
 }
 
-table {
-  border-radius: 15px;
-  color: rgb(0, 0, 0);
-  border: 3px solid;
-}
-
-td {
-  border-block: 2px solid;
-  font-size: 16px;
-}
-
 tr {
-  border: 4px solid;
+  border: 1px solid;
   font-size: 16px;
 }
-
-.centerCard {}
 
 .sensores {
   margin-top: 25px;
@@ -188,7 +340,7 @@ li {
 }
 
 .polaroid {
-  height: 300px;
+  height: 200px;
   background-color: white;
   padding: 10px 10px 50px 10px;
   border: 1px solid #bfbfbf;
@@ -196,8 +348,8 @@ li {
 }
 
 .marcoReloj {
-  margin-right: 15px;
-  margin-top: 85px;
+
+  margin-top: 20px;
   background-color: #2c2c2c;
   border-radius: 20px;
   border: 5px solid #bfbfbf;
@@ -214,4 +366,11 @@ li {
   background: rgb(0, 0, 0);
   margin-left: 1px;
   color: rgb(255, 255, 255);
-}</style>
+}
+
+.centrarGrafico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

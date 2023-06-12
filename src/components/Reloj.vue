@@ -49,7 +49,7 @@
         text-align: left; 
         font-family: Arial;
         font-weight:bold; 
-        font-size: 100px; 
+        font-size: 60px; 
         color: #ffffff; 
         text-shadow: -1px 0 #134cd1, 0 1px #1547bb, 1px 0 #414D68, 0 -1px #21469c, -2px 2px 0 #414D68, 2px 2px 0 #58f543, 1px 1px #414D68, 2px 2px #414D68, 3px 3px #414D68, 4px 4px #414D68, 5px 5px #414D68, 6px 6px #414D68, 7px 7px #414D68, 8px 8px #414D68, 9px 9px #414D68;
 }
