@@ -60,10 +60,10 @@
       <div class="col-md-12">
         <table>
           <tr>
-            <td><img src="../assets/icos/celsius.png" height="50" class="" alt="Icono Humedad Tierra" /><p><strong>Temperatura Ambiental</strong></p></td>
-            <td><img src="../assets/icos/dom.png" height="50" class="" alt="Icono Sol" /><p><strong>Luz ambiental</strong></p></td>
-            <td><img src="../assets/icos/humedad.png" height="50" class="" alt="Icono Humedad" /><p><strong>Humedad Ambiental</strong></p></td>
-            <td><img src="../assets/icos/humedadTierra.png" height="50" class="" alt="Icono Humedad Tierra" /><p><strong>Humedad de la tierra</strong></p></td>
+            <td><img src="../assets/icos/celsius.png" height="50" class="" alt="Icono Humedad Tierra" /><p><strong>Temperatura Ambiente</strong></p></td>
+            <td><img src="../assets/icos/dom.png" height="50" class="" alt="Icono Sol" /><p><strong>Luz Ambiental</strong></p></td>
+            <td><img src="../assets/icos/humedad.png" height="50" class="" alt="Icono Humedad" /><p><strong>Humedad Ambiente</strong></p></td>
+            <td><img src="../assets/icos/humedadTierra.png" height="50" class="" alt="Icono Humedad Tierra" /><p><strong>Humedad Tierra</strong></p></td>
           </tr>
           <tr>
             <td class="marcador textoGrandeTem">{{ registros[0].tempAmb }}</td>
@@ -108,10 +108,10 @@
       <table>
         <tr>
           <td><strong>Hora</strong></td>
-          <td><strong>Temperatura Ambiente</strong></td>
-          <td><strong>Luz Ambiente</strong></td>
-          <td><strong>Humedad Ambiente</strong></td>
-          <td><strong>Humedad Tierra</strong></td>
+          <td><strong>Temperatura <br/>Ambiente</strong></td>
+          <td><strong>Luz <br/>Ambiente</strong></td>
+          <td><strong>Humedad<br/>Ambiente</strong></td>
+          <td><strong>Humedad<br/> Tierra</strong></td>
           
         </tr>
         <tr v-for="registro in registros" :key="registro.id">
@@ -261,7 +261,7 @@ export default {
         data: {
           labels: horas,
           datasets: [{
-            label: 'Luz',
+            label: 'Luz Ambiental',
             data: luz,
             borderColor: 'orange',
             borderWidth: 1
