@@ -51,8 +51,31 @@
             <h4>No hay mucha luz. Hora de ir a dormir!!</h4>
           </div>
     </div>
-     
+    
 
+
+  <div class="container">
+    <br/><br/>
+    <div class="row">
+      <div class="col-md-12">
+        <table>
+          <tr>
+            <td><img src="../assets/icos/celsius.png" height="50" class="" alt="Icono Humedad Tierra" /><p><strong>Temperatura Ambiental</strong></p></td>
+            <td><img src="../assets/icos/dom.png" height="50" class="" alt="Icono Sol" /><p><strong>Luz ambiental</strong></p></td>
+            <td><img src="../assets/icos/humedad.png" height="50" class="" alt="Icono Humedad" /><p><strong>Humedad Ambiental</strong></p></td>
+            <td><img src="../assets/icos/humedadTierra.png" height="50" class="" alt="Icono Humedad Tierra" /><p><strong>Humedad de la tierra</strong></p></td>
+          </tr>
+          <tr>
+            <td class="marcador textoGrandeTem">{{ registros[0].tempAmb }}</td>
+            <td class="marcador textoGrandeLuz">{{ registros[0].luzAmb }}</td>
+            <td class="marcador textoGrandeHum">{{ registros[0].humAmb }}</td>
+            <td class="marcador textoGrandeHumTie">{{ registros[0].humTer }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+      
+      </div>
       
    </div>
     </div>
@@ -67,11 +90,12 @@
           <canvas id="myChart2"></canvas>
         </div>
         <div class="col-sm-12 col-md-6 centrarGrafico">
-          <canvas id="myChart3"></canvas>
-        </div>
-        <div class="col-sm-12 col-md-6 centrarGrafico">
           <canvas id="myChart4"></canvas>
         </div>
+        <div class="col-sm-12 col-md-6 centrarGrafico">
+          <canvas id="myChart3"></canvas>
+        </div>
+        
       </div>
       
    
@@ -83,18 +107,19 @@
       </div>
       <table>
         <tr>
-          <td>Hora</td>
-          <td>Temperatura Ambiente</td>
-          <td>Humedad Ambiente</td>
-          <td>Humedad Tierra</td>
-          <td>Luz Ambiente</td>
+          <td><strong>Hora</strong></td>
+          <td><strong>Temperatura Ambiente</strong></td>
+          <td><strong>Luz Ambiente</strong></td>
+          <td><strong>Humedad Ambiente</strong></td>
+          <td><strong>Humedad Tierra</strong></td>
+          
         </tr>
         <tr v-for="registro in registros" :key="registro.id">
           <td>{{ registro.hora }}</td>
-          <td>{{ registro.tempAmb }}</td>
-          <td>{{ registro.humAmb }}</td>
-          <td>{{ registro.humTer }}</td>
-          <td>{{ registro.luzAmb }}</td>
+          <td class="textoGrandeTem">{{ registro.tempAmb }}</td>
+          <td class="textoGrandeLuz">{{ registro.luzAmb }}</td>
+          <td class="textoGrandeHum">{{ registro.humAmb }}</td>
+          <td class="textoGrandeHumTie">{{ registro.humTer }}</td>  
         </tr>
       </table>
     </div>
@@ -148,9 +173,7 @@ export default {
     let humTierra = [];
     let humAmbiente = [];
     let horas = []
-    //const ctx1 = document.getElementById("temAmb");
-    //let ctx1 = document.getElementById("myChart1");
-
+  
     onMounted(() => {
       fetchEstados();
       fetchRegistros();
@@ -341,7 +364,7 @@ export default {
 
 tr {
   border: 1px solid;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .sensores {
@@ -397,5 +420,33 @@ li {
   border-radius: 20px;
   border: 5px solid #bfbfbf;
   box-shadow: 20px 20px 30px rgba(104, 104, 103, 0.8);
+}
+
+.marcador,td {
+  margin-left: 15px;
+  
+  font-size: 16px;
+  border-radius: 20px;
+  box-shadow: 20px 20px 30px rgba(189, 189, 188, 0.8);
+}
+.textoGrandeTem{
+  font-size: 25px;
+  color: rgb(255, 0, 0);
+}
+.textoGrandeLuz{
+  font-size: 25px;
+  color: rgb(228, 149, 2);
+}
+.textoGrandeHum{
+  font-size: 25px;
+  color: blue;
+}
+.textoGrandeHumTie{
+  font-size: 25px;
+  color: rgb(10, 156, 30);
+}
+table,td,tr {
+  border: 0px;;
+  border-style: none;
 }
 </style>

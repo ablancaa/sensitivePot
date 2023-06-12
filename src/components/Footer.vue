@@ -76,9 +76,9 @@
         <!-- Grid column -->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
-          <!-- <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
-          </h6> -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <img src="../assets/icos/licencia.png" width="150">
+          </h6>
           <!-- <p>
             <a href="#!" class="text-reset">Pricing</a>
           </p>
