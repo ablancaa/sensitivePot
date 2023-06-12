@@ -6,7 +6,7 @@
                     <img src="../assets/sensores/humedadTierra.jpg" height="" class="polaroid" /> 
                 </div>
                 <div class="col-md-4">
-                    <img src="../assets/sensores/todosloscomponentes.jpg" height="" class="polaroid" />
+                    <img src="../assets/sensores/Pantalla.png" height="" class="polaroid" />
                 </div>
                 <div class="col-md-4">
                     <img src="../assets/sensores/ESP8266-WeMos.webp" height="150" class="polaroid" />

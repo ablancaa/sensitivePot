@@ -211,6 +211,7 @@ export default {
         .then((response) => {
           registros.value = response.data;
           ultimo.value = registros.value.reverse();
+          registros.value.reverse();
           for (let i = 0; i < registros.value.length; i++) {
             horas[i] = ultimo.value[i].hora;
             tempAmb.value = ultimo.value[i].tempAmb;
@@ -439,7 +440,7 @@ li {
 }
 .textoGrandeHum{
   font-size: 25px;
-  color: blue;
+  color: rgb(48, 148, 241);
 }
 .textoGrandeHumTie{
   font-size: 25px;
