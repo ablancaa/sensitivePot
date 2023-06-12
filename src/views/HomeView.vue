@@ -35,7 +35,15 @@
           <div class="marcoReloj centrarGrafico">
             <Reloj />
           </div>
-          
+          <div class="col-md-5 marcoMensaje" v-if="este == 2">
+            <h4>La luz es agradable y estoy bien de agua!!</h4>
+          </div>
+          <div class="col-md-5 marcoMensaje" v-if="este == 5">
+            <h4>No hay mucha luz, hora de ir a dormir!!</h4>
+          </div>
+          <div class="col-md-5 marcoMensaje" v-if="este == 1">
+            <h4>Hola, qué tal??</h4>
+          </div>
     </div>
      
 
@@ -372,5 +380,15 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.marcoMensaje {
+  width: auto;
+  color: white;
+  margin-top: 20px;
+  background-color: #2c2c2c;
+  border-radius: 20px;
+  border: 5px solid #bfbfbf;
+  box-shadow: 20px 20px 30px rgba(104, 104, 103, 0.8);
 }
 </style>
