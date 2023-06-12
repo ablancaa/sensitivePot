@@ -35,14 +35,20 @@
           <div class="marcoReloj centrarGrafico">
             <Reloj />
           </div>
+          <div class="col-md-5 marcoMensaje" v-if="este == 1">
+            <h4>Hola, qué tal??</h4>
+          </div>
           <div class="col-md-5 marcoMensaje" v-if="este == 2">
             <h4>La luz es agradable y estoy bien de agua!!</h4>
           </div>
-          <div class="col-md-5 marcoMensaje" v-if="este == 5">
-            <h4>No hay mucha luz, hora de ir a dormir!!</h4>
+          <div class="col-md-5 marcoMensaje" v-if="este == 3">
+            <h4>Creo que me estoy secando!!</h4>
           </div>
-          <div class="col-md-5 marcoMensaje" v-if="este == 1">
-            <h4>Hola, qué tal??</h4>
+          <div class="col-md-5 marcoMensaje" v-if="este == 4">
+            <h4>Por Favor!! Riégame!!! Riégame!!</h4>
+          </div>
+          <div class="col-md-5 marcoMensaje" v-if="este == 5">
+            <h4>No hay mucha luz. Hora de ir a dormir!!</h4>
           </div>
     </div>
      
