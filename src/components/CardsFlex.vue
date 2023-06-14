@@ -33,19 +33,19 @@
                 <div class="gallery">
                     <div class="card">
                         <img src="../assets/icos/celsius.png" height="50" class="colorTituloCard" alt="Icono Temperatura Ambiente" />
-                        <canvas id="myChart1"></canvas>
+                        <canvas id="tempAmb"></canvas>
                     </div>
                     <div class="card">
                         <img src="../assets/icos/dom.png" height="50" class="" alt="Icono Sol" />
-                        <canvas id="myChart2"></canvas>
+                        <canvas id="luzAmb"></canvas>
                     </div>
                     <div class="card">
                         <img src="../assets/icos/humedad.png" height="50" class="" alt="Icono Humedad" />
-                        <canvas id="myChart3"></canvas>
+                        <canvas id="humAmb"></canvas>
                     </div>
                     <div class="card">
                         <img src="../assets/icos/humedadTierra.png" height="50" class="" alt="Icono Humedad Tierra" />
-                        <canvas id="myChart4"></canvas>
+                        <canvas id="humTie"></canvas>
                     </div>
                     <!-- <div class="card">
                         Card 5
@@ -112,7 +112,7 @@ export default {
 
         const pintaGraficaTempAmb = () => {
 
-            const ctx = document.getElementById("myChart1");
+            const ctx = document.getElementById("tempAmb");
             new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -140,7 +140,7 @@ export default {
         }
         const pintaGraficaLuz = () => {
 
-            const ctx = document.getElementById("myChart2");
+            const ctx = document.getElementById("luzAmb");
             new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -168,7 +168,7 @@ export default {
         }
         const pintaGraficaHumTer = () => {
 
-            const ctx = document.getElementById("myChart3");
+            const ctx = document.getElementById("humAmb");
             new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -194,7 +194,7 @@ export default {
         }
         const pintaGraficaHumAmb = () => {
 
-            const ctx = document.getElementById("myChart4");
+            const ctx = document.getElementById("humTie");
             new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -310,7 +310,7 @@ export default {
     font-weight: bold;
     background-color: rgb(255, 255, 255);
     cursor: pointer;
-    height: 480px;
+    height: 570px;
 }
 
 .colorTituloCard{

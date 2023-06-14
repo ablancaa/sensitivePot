@@ -21,8 +21,48 @@
             </div>
             </div>
             </div><!-- fin -->
+           
+           
 <br/>
-    <div class="ontainer-fluid">
+<h2></h2>
+<p></p>
+<button class="accordion"><img src="../assets/icos/celsius.png" height="50" class="colorTituloCard" alt="Icono Temperatura Ambiente" /> Temperatura Ambiente</button>
+<div class="panel centrarGrafico">
+    
+            <div class="col-sm-12 col-md-6 centrarGrafico">
+                <canvas id="myChart1"></canvas>
+            </div>
+      
+        </div>
+        
+          
+
+<button class="accordion">
+    <img src="../assets/icos/dom.png" height="50" class="colorTituloCard" alt="Icono Luz Ambiental" /> Luz Ambiental
+</button>
+<div class="panel centrarGrafico">
+    <div class="col-sm-12 col-md-6 centrarGrafico">
+                <canvas id="myChart2"></canvas>
+            </div>
+</div>
+<button class="accordion">
+    <img src="../assets/icos/humedad.png" height="50" class="colorTituloCard" alt="Icono Humedad Ambiente" /> Humedad Ambiente
+</button>
+<div class="panel centrarGrafico">
+    <div class="col-sm-12 col-md-6 centrarGrafico">
+                <canvas id="myChart4"></canvas>
+            </div>
+</div>
+<button class="accordion">
+    <img src="../assets/icos/humedadTierra.png" height="50" class="colorTituloCard" alt="Icono Humedad Tierra" /> Humedad Tierra
+</button>
+<div class="panel centrarGrafico">
+    <div class="col-sm-12 col-md-6 centrarGrafico">
+                <canvas id="myChart3"></canvas>
+            </div>
+</div>
+        <GraficosFlex/>
+        <!-- <div class="ontainer-fluid">
         <div class="row">
             <div class="col-sm-12 col-md-6 centrarGrafico">
                 <canvas id="myChart1"></canvas>
@@ -32,7 +72,6 @@
                 <canvas id="myChart2"></canvas>
             </div>
         </div>
-        
         <div class="row">
             <div class="col-sm-12 col-md-6 centrarGrafico">
                 <canvas id="myChart3"></canvas>
@@ -40,21 +79,20 @@
             <div class="col-sm-12 col-md-6 centrarGrafico">
                 <canvas id="myChart4"></canvas></div>
             </div>
-        </div>
-        
-<br/>
+        </div> -->
 </template>
     
 <script>
 import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 import Chart from 'chart.js/auto';
-
+import GraficosFlex from '../components/CardsFlex.vue'
 export default {
 
     name: 'Graficos-1',
-    setup() {
-
+    components: {GraficosFlex},
+       setup() {
+      
         let registros = ref([]);
         let estado = ref(1);
         let medicion = ref([]);
@@ -73,10 +111,19 @@ export default {
         let humTierra = [];
         let humAmbiente = [];
         let horas = []
-
-
+        let acc = document.getElementsByClassName("accordion");
+        
 
         onMounted(() => {
+           
+   
+
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].onclick = function(){
+                this.classList.toggle("active");
+                this.nextElementSibling.classList.toggle("show");
+            }
+        }
             fetchRegistros();
             fetchEstados();
             pintaGraficaTempAmb();
@@ -144,6 +191,8 @@ export default {
                     }]
                 },
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
                     scales: {
                         y: {
                             beginAtZero: true
@@ -161,7 +210,7 @@ export default {
                 data: {
                     labels: horas,
                     datasets: [{
-                        label: 'Luz',
+                        label: 'Luz Ambiental',
                         data: luz,
                         borderColor: 'orange',
                         borderWidth: 1
@@ -170,6 +219,8 @@ export default {
                     
                 },
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
                     scales: {
                         y: {
                             beginAtZero: true
@@ -194,6 +245,8 @@ export default {
                     }]
                 },
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
                     scales: {
                         y: {
                             beginAtZero: true
@@ -217,6 +270,8 @@ export default {
                     }]
                 },
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
                     scales: {
                         y: {
                             beginAtZero: true
@@ -230,7 +285,7 @@ export default {
 
 
 
-        return { estado, registros, medicion, ultimo, cara1, cara2, cara3, cara4, cara5, face, este, id, tempAmb, copyOfDynos, luz, humTierra };
+        return { acc, estado, registros, medicion, ultimo, cara1, cara2, cara3, cara4, cara5, face, este, id, tempAmb, copyOfDynos, luz, humTierra };
     }
 
 }
@@ -252,5 +307,48 @@ export default {
 display: flex;
   justify-content: center;
   align-items: center;
+}
+
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+button.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2796";
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+}
+
+div.panel.show {
+    opacity: 1;
+    max-height: 700px;
 }
 </style>

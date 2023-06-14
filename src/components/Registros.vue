@@ -1,8 +1,5 @@
 <template>
     <div>
-        <br/>
-        <br/>
-        <br/>
         <div>
             <h1>Registros</h1>
             <div v-for="estado in estados" :key="estado.id">
@@ -35,7 +32,7 @@
   </template>
   
   <script>
-    import axios from 'axios';
+  import axios from 'axios';
   export default {
     name: 'Registro-1',
     data() {

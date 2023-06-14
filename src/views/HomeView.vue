@@ -1,6 +1,6 @@
 <template>
   <div id="todo">
-    <div class="contenido">
+
       <h1></h1>
       <div class="row">
 
@@ -107,7 +107,13 @@
    
     </div>
     <br />
-    <div class="container">
+    
+
+   <br /><br />
+   <button class="accordion"><img src="../assets/icos/editar.png" height="50" class="colorTituloCard" alt="Icono Registros" /> Registro de sensores</button>
+<div class="panel centrarGrafico">
+    
+  <div class="container">
       <div>
 
       </div>
@@ -129,26 +135,14 @@
         </tr>
       </table>
     </div>
-  </div>
-  
-    
-    
-    
-   
-
-   
-  
-   
-   <br /><br />
- 
-
+      
+        </div>
+        <br/>
 </template>
 
 <script>
 import { ref, onMounted, computed } from "vue";
-import CardHumedad from "/src/components/CardHumedad.vue";
-import CardHumedadTierra from "/src/components/CardHumedadTierra.vue";
-import CardTemperatura from "/src/components/CardTemperatura.vue";
+
 import Reloj from "/src/components/Reloj.vue";
 import Chart from 'chart.js/auto';
 import axios from "axios";
@@ -179,8 +173,14 @@ export default {
     let humTierra = [];
     let humAmbiente = [];
     let horas = []
-  
+    let acc = document.getElementsByClassName("accordion");
     onMounted(() => {
+      for (let i = 0; i < acc.length; i++) {
+            acc[i].onclick = function(){
+                this.classList.toggle("active");
+                this.nextElementSibling.classList.toggle("show");
+            }
+        }
       fetchEstados();
       fetchRegistros();
       pintaGraficaTempAmb();
@@ -334,7 +334,7 @@ export default {
     }
 
     return {
-      sensitivePot, img, Reloj, CardHumedad, CardHumedadTierra, CardTemperatura, estates,
+      sensitivePot, img, Reloj, estates,
       registros, medicion,
       ultimo,
       cara1,
@@ -356,17 +356,12 @@ export default {
   background-image: url("../assets/jardin.jpg");
   background-size: 100%;
   height: auto;
-
 }
 
 .titulo {
   font-size: 20px;
   background: #ff0000;
   width: 20px;
-}
-
-.contenido {
-  margin-top: 70px;
 }
 
 tr {
@@ -463,5 +458,47 @@ table,td,tr {
   margin-top: 194px;
   margin-left: -155px;
   font-family: Arial, Helvetica, sans-serif;
+}
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+button.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2796";
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+}
+
+div.panel.show {
+    opacity: 1;
+    max-height: 2250px;
 }
 </style>
