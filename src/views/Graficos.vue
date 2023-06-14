@@ -21,12 +21,15 @@
             </div>
             </div>
             </div><!-- fin -->
-           
-           
-<br/>
-<h2></h2>
-<p></p>
-<button class="accordion"><img src="../assets/icos/celsius.png" height="50" class="colorTituloCard" alt="Icono Temperatura Ambiente" /> Temperatura Ambiente</button>
+            
+<div class="row">
+
+
+</div>
+<br/><br/>
+<div class="row">
+<div class="col-md-6">
+    <button class="accordion"><img src="../assets/icos/celsius.png" height="50" class="colorTituloCard" alt="Icono Temperatura Ambiente" /> Temperatura Ambiente</button>
 <div class="panel centrarGrafico">
     
             <div class="col-sm-12 col-md-6 centrarGrafico">
@@ -34,10 +37,9 @@
             </div>
       
         </div>
-        
-          
-
-<button class="accordion">
+</div>
+<div class="col-md-6">
+  <button class="accordion">
     <img src="../assets/icos/dom.png" height="50" class="colorTituloCard" alt="Icono Luz Ambiental" /> Luz Ambiental
 </button>
 <div class="panel centrarGrafico">
@@ -45,7 +47,9 @@
                 <canvas id="myChart2"></canvas>
             </div>
 </div>
-<button class="accordion">
+</div>
+<div class="col-md-6">
+    <button class="accordion">
     <img src="../assets/icos/humedad.png" height="50" class="colorTituloCard" alt="Icono Humedad Ambiente" /> Humedad Ambiente
 </button>
 <div class="panel centrarGrafico">
@@ -53,33 +57,24 @@
                 <canvas id="myChart4"></canvas>
             </div>
 </div>
-<button class="accordion">
+</div>
+<div class="col-md-6">
+    <button class="accordion">
     <img src="../assets/icos/humedadTierra.png" height="50" class="colorTituloCard" alt="Icono Humedad Tierra" /> Humedad Tierra
 </button>
 <div class="panel centrarGrafico">
     <div class="col-sm-12 col-md-6 centrarGrafico">
                 <canvas id="myChart3"></canvas>
             </div>
+     </div>
 </div>
+
+</div>
+           
+<br/>
+
         <GraficosFlex/>
-        <!-- <div class="ontainer-fluid">
-        <div class="row">
-            <div class="col-sm-12 col-md-6 centrarGrafico">
-                <canvas id="myChart1"></canvas>
-            </div>
-            
-            <div class="col-sm-12 col-md-6 centrarGrafico">
-                <canvas id="myChart2"></canvas>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 col-md-6 centrarGrafico">
-                <canvas id="myChart3"></canvas>
-            </div>
-            <div class="col-sm-12 col-md-6 centrarGrafico">
-                <canvas id="myChart4"></canvas></div>
-            </div>
-        </div> -->
+<br/>
 </template>
     
 <script>
@@ -130,7 +125,7 @@ export default {
             pintaGraficaLuz();
             pintaGraficaHumTer();
             pintaGraficaHumAmb();
-            setInterval("location.reload()", 120000);
+           
             document.body.style.zoom = "99%";
         })
 
@@ -304,9 +299,10 @@ export default {
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
 }
 .centrarGrafico{
-display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
+  width: 99%;
 }
 
 button.accordion {
@@ -349,6 +345,6 @@ div.panel {
 
 div.panel.show {
     opacity: 1;
-    max-height: 700px;
+    max-height: 900px;
 }
 </style>

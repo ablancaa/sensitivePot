@@ -32,19 +32,19 @@
             <div class="col-md-12">
                 <div class="gallery">
                     <div class="card">
-                        <img src="../assets/icos/celsius.png" height="50" class="colorTituloCard" alt="Icono Temperatura Ambiente" />
+                        <img src="../assets/icos/celsius.png" height="50" class="colorTituloTemAmb" alt="Icono Temperatura Ambiente" />
                         <canvas id="tempAmb"></canvas>
                     </div>
                     <div class="card">
-                        <img src="../assets/icos/dom.png" height="50" class="" alt="Icono Sol" />
+                        <img src="../assets/icos/dom.png" height="50" class="colorTituloLuzAmb" alt="Icono Sol" />
                         <canvas id="luzAmb"></canvas>
                     </div>
                     <div class="card">
-                        <img src="../assets/icos/humedad.png" height="50" class="" alt="Icono Humedad" />
+                        <img src="../assets/icos/humedad.png" height="50" class="colorTituloHumAmb" alt="Icono Humedad" />
                         <canvas id="humAmb"></canvas>
                     </div>
                     <div class="card">
-                        <img src="../assets/icos/humedadTierra.png" height="50" class="" alt="Icono Humedad Tierra" />
+                        <img src="../assets/icos/humedadTierra.png" height="50" class="colorTituloHumTie" alt="Icono Humedad Tierra" />
                         <canvas id="humTie"></canvas>
                     </div>
                     <!-- <div class="card">
@@ -168,7 +168,7 @@ export default {
         }
         const pintaGraficaHumTer = () => {
 
-            const ctx = document.getElementById("humAmb");
+            const ctx = document.getElementById("humTie");
             new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -194,7 +194,7 @@ export default {
         }
         const pintaGraficaHumAmb = () => {
 
-            const ctx = document.getElementById("humTie");
+            const ctx = document.getElementById("humAmb");
             new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -228,6 +228,7 @@ export default {
 .gallery{
     display: flex;
     gap: 4px;
+    
 }
 .cardTop{
     position: relative;
@@ -241,8 +242,9 @@ export default {
     flex: 1px;
 }
 .cardTop:nth-child(1){
-    background-color: red;
+    background-color: rgb(255, 0, 0);
     align-items: center;
+    
 }
 .cardTop:nth-child(2){
     background-color: Orange;
@@ -313,8 +315,20 @@ export default {
     height: 570px;
 }
 
-.colorTituloCard{
+.colorTituloTemAmb{
     background-color: red;
+    padding: -10px;
+}
+.colorTituloLuzAmb{
+    background-color: orange;
+    padding: -10px;
+}
+.colorTituloHumAmb{
+    background-color: rgb(7, 153, 197);
+    padding: -10px;
+}
+.colorTituloHumTie{
+    background-color: green;
     padding: -10px;
 }
 

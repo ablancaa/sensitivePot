@@ -1,6 +1,5 @@
 <template>
   <div id="todo">
-
       <h1></h1>
       <div class="row">
 
@@ -56,7 +55,7 @@
           <div class="col-md-5 marcoMensaje" v-if="este == 5">
             <h4 class="espacioTop">No hay mucha luz. Hora de ir a dormir!!</h4>
           </div>
-    </div>
+    </div><!-- DIV TODO -->
     
 
 
