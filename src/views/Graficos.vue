@@ -49,10 +49,10 @@
 import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 import Chart from 'chart.js/auto';
+
 export default {
 
     name: 'Graficos-1',
-    components: {},
     setup() {
 
         let registros = ref([]);
