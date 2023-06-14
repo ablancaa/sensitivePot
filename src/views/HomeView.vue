@@ -11,21 +11,27 @@
       <div class="row">
         <div class="col-md-6" v-if="este == 1">
           <img :src="cara1" height="" class="polaroid" alt="Cara de interfaz" />
+          <span class="msjCara">Observer!!</span>
         </div>
         <div class="col-md-6" v-if="este == 2">
           <img :src="cara2" height="" class="polaroid" alt="Cara de interfaz" />
+          <span class="msjCara">Happy</span>
         </div>
         <div class="col-md-6" v-if="este == 3">
           <img :src="cara3" height="" class="polaroid" alt="Cara de interfaz" />
+          <span class="msjCara">UUuffff!!!!</span>
         </div>
         <div class="col-md-6" v-if="este == 4">
           <img :src="cara4" height="" class="polaroid" alt="Cara de interfaz" />
+          <span class="msjCara">Sad</span>
         </div>
         <div class="col-md-6" v-if="este == 5">
           <img :src="cara5" height="" class="polaroid" alt="Cara de interfaz" />
+          <span class="msjCara">Sleeping</span>
         </div>
         <div class="col-md-6" v-if="este == 6">
           <img :src="cara6" height="" class="polaroid" alt="Cara de interfaz" />
+          <span class="msjCara">I have died</span>
         </div>
         <div class="col-md-6" v-if="este == 7">
           <img :src="cara7" height="" class="polaroid" alt="Cara de interfaz" />
@@ -36,19 +42,19 @@
             <Reloj />
           </div>
           <div class="col-md-5 marcoMensaje" v-if="este == 1">
-            <h4>Hola, qué tal??</h4>
+            <h4 class="espacioTop">Hola, qué tal??</h4>
           </div>
           <div class="col-md-5 marcoMensaje" v-if="este == 2">
-            <h4>La luz es agradable y estoy bien de agua!!</h4>
+            <h4 class="espacioTop">La luz es agradable y estoy bien de agua!!</h4>
           </div>
           <div class="col-md-5 marcoMensaje" v-if="este == 3">
-            <h4>Creo que me estoy secando!!</h4>
+            <h4 class="espacioTop">Creo que me estoy secando!!</h4>
           </div>
           <div class="col-md-5 marcoMensaje" v-if="este == 4">
-            <h4>Por Favor!! Riégame!!! Riégame!!</h4>
+            <h4 class="espacioTop">Por Favor!! Riégame!!! Riégame!!</h4>
           </div>
           <div class="col-md-5 marcoMensaje" v-if="este == 5">
-            <h4>No hay mucha luz. Hora de ir a dormir!!</h4>
+            <h4 class="espacioTop">No hay mucha luz. Hora de ir a dormir!!</h4>
           </div>
     </div>
     
@@ -159,7 +165,7 @@ export default {
     let medicion = ref([]);
     let ultimo = ref([]);
     let cara1 = "http://clarys.ddns.net/faces/1.png";
-    let cara2 = "http://clarys.ddns.net/faces/2.png";
+    let cara2 = "http://clarys.ddns.net/faces/cara2.gif";
     let cara3 = "http://clarys.ddns.net/faces/3.png";
     let cara4 = "http://clarys.ddns.net/faces/4.png";
     let cara5 = "http://clarys.ddns.net/faces/5.png";
@@ -416,7 +422,7 @@ li {
 .marcoMensaje {
   width: auto;
   color: white;
-  margin-top: 20px;
+  margin-top: 15px;
   background-color: #2c2c2c;
   border-radius: 20px;
   border: 5px solid #bfbfbf;
@@ -425,10 +431,9 @@ li {
 
 .marcador,td {
   margin-left: 15px;
-  
   font-size: 16px;
   border-radius: 20px;
-  box-shadow: 20px 20px 30px rgba(189, 189, 188, 0.8);
+  box-shadow: 20px 20px 30px rgba(185, 185, 176, 0.8);
 }
 .textoGrandeTem{
   font-size: 25px;
@@ -449,5 +454,14 @@ li {
 table,td,tr {
   border: 0px;;
   border-style: none;
+}
+.espacioTop {
+  margin-top: 10px;
+}
+.msjCara{
+  position: absolute;
+  margin-top: 194px;
+  margin-left: -155px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 </style>
