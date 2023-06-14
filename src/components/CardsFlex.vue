@@ -32,19 +32,19 @@
             <div class="col-md-12">
                 <div class="gallery">
                     <div class="card">
-                        <img src="../assets/icos/celsius.png" height="50" class="colorTituloTemAmb" alt="Icono Temperatura Ambiente" />
+                        <img src="../assets/icos/celsius.png" height="40" class="colorTituloTemAmb" alt="Icono Temperatura Ambiente" />
                         <canvas id="tempAmb"></canvas>
                     </div>
                     <div class="card">
-                        <img src="../assets/icos/dom.png" height="50" class="colorTituloLuzAmb" alt="Icono Sol" />
+                        <img src="../assets/icos/dom.png" height="40" class="colorTituloLuzAmb" alt="Icono Sol" />
                         <canvas id="luzAmb"></canvas>
                     </div>
                     <div class="card">
-                        <img src="../assets/icos/humedad.png" height="50" class="colorTituloHumAmb" alt="Icono Humedad" />
+                        <img src="../assets/icos/humedad.png" height="40" class="colorTituloHumAmb" alt="Icono Humedad" />
                         <canvas id="humAmb"></canvas>
                     </div>
                     <div class="card">
-                        <img src="../assets/icos/humedadTierra.png" height="50" class="colorTituloHumTie" alt="Icono Humedad Tierra" />
+                        <img src="../assets/icos/humedadTierra.png" height="40" class="colorTituloHumTie" alt="Icono Humedad Tierra" />
                         <canvas id="humTie"></canvas>
                     </div>
                     <!-- <div class="card">
@@ -87,7 +87,7 @@ export default {
             pintaGraficaHumTer();
             pintaGraficaHumAmb();
             setInterval("location.reload()", 120000);
-            document.body.style.zoom = "99%";
+            document.body.style.zoom = "98%";
         })
         const fetchRegistros = () => {
             axios.get('http://clarys.ddns.net:3000/api/dades')
@@ -276,28 +276,30 @@ export default {
     left: 0px;
     width: 80px;
     height: 200px;
-    border-radius: 4px;
-    padding: 8px;
+    border-radius: 15px;
+    padding: 7px;
     background-color: white;
     transition: 0.4s ease-in-out;
     flex: 1px;
     font-size: 16px;
+    
 }
 .card:nth-child(1){
-    background-color: rgb(255, 0, 0);
+    /* background-color: rgb(255, 0, 0); */
     align-items: center;
+    
 }
 .card:nth-child(2){
-    background-color: Orange;
+    /* background-color: Orange; */
     align-items: center;
     
 }
 .card:nth-child(3){
-    background-color: rgb(7, 153, 197);
+    /* background-color: rgb(7, 153, 197); */
     align-items: center;
 }
 .card:nth-child(4){
-    background-color: green;
+    /* background-color: green; */
     align-items: center;
 }
 .card:nth-child(5){
@@ -313,23 +315,28 @@ export default {
     background-color: rgb(255, 255, 255);
     cursor: pointer;
     height: 570px;
+    
 }
 
 .colorTituloTemAmb{
     background-color: red;
-    padding: -10px;
+    border-radius: 10px;
+    padding: 5px;
 }
 .colorTituloLuzAmb{
     background-color: orange;
-    padding: -10px;
+    border-radius: 10px;
+    padding: 5px;
 }
 .colorTituloHumAmb{
     background-color: rgb(7, 153, 197);
-    padding: -10px;
+    border-radius: 10px;
+    padding: 5px;
 }
 .colorTituloHumTie{
     background-color: green;
-    padding: -10px;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 </style>
