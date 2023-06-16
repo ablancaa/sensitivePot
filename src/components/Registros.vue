@@ -1,4 +1,5 @@
 <template>
+  
     <div>
         <div>
             <h1>Registros</h1>
@@ -12,6 +13,33 @@
               </div>
             </div>
       <br/>
+      <button class="accordion"><img src="../assets/icos/editar.png" height="50" class="colorTituloCard" alt="Icono Registros" /> Registro de sensores</button>
+<div class="panel centrarGrafico">
+    
+  <div class="container">
+      <div>
+
+      </div>
+      <table>
+        <tr>
+          <td><strong>Hora</strong></td>
+          <td><strong>Temperatura <br/>Ambiente</strong></td>
+          <td><strong>Luz <br/>Ambiente</strong></td>
+          <td><strong>Humedad<br/>Ambiente</strong></td>
+          <td><strong>Humedad<br/> Tierra</strong></td>
+          
+        </tr>
+        <tr v-for="registro in registros" :key="registro.id">
+          <td>{{ registro.hora }}</td>
+          <td class="textoGrandeTem">{{ registro.tempAmb }}</td>
+          <td class="textoGrandeLuz">{{ registro.luzAmb }}</td>
+          <td class="textoGrandeHum">{{ registro.humAmb }}</td>
+          <td class="textoGrandeHumTie">{{ registro.humTer }}</td>  
+        </tr>
+      </table>
+    </div>
+      
+  </div>
       <table>
         <tr>
             <td>Hora</td>
@@ -40,11 +68,18 @@
         registros: [],
         estados: [],
         cara1: 1,
+        acc: document.getElementsByClassName("accordion"),
       };
     },
     mounted() {
       this.fetchRegistros();
       this.cara1 = this.fetchEstados();
+      for (let i = 0; i < this.acc.length; i++) {
+            this.acc[i].onclick = function(){
+                this.classList.toggle("active");
+                this.nextElementSibling.classList.toggle("show");
+            }
+        }
     },
     computed(){
      this.estados = this.fetchEstados()
@@ -90,5 +125,47 @@
   border: 1px solid #bfbfbf;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
   margin-top: 30px;
+}
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+button.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2796";
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+}
+
+div.panel.show {
+    opacity: 1;
+    max-height: 2250px;
 }
   </style>
