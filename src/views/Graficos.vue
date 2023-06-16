@@ -29,7 +29,7 @@
 <br/><br/>
 <div class="row">
 <div class="col-md-6">
-    <button class="accordion"><img src="../assets/icos/celsius.png" height="50" class="colorTituloCard" alt="Icono Temperatura Ambiente" /> Temperatura Ambiente</button>
+    <button class="accordion"><img src="../assets/icos/celsius.png" height="50" class="colorTituloCard" alt="Icono Temperatura Ambiente" /> <span class="">Temperatura Ambiente</span></button>
 <div class="panel centrarGrafico">
     
             <div class="col-sm-12 col-md-6 centrarGrafico">
@@ -40,7 +40,7 @@
 </div>
 <div class="col-md-6">
   <button class="accordion">
-    <img src="../assets/icos/dom.png" height="50" class="colorTituloCard" alt="Icono Luz Ambiental" /> Luz Ambiental
+    <img src="../assets/icos/dom.png" height="50" class="colorTituloCard" alt="Icono Luz Ambiental" /> <span class="">Luz Ambiental</span>
 </button>
 <div class="panel centrarGrafico">
     <div class="col-sm-12 col-md-6 centrarGrafico">
@@ -50,7 +50,7 @@
 </div>
 <div class="col-md-6">
     <button class="accordion">
-    <img src="../assets/icos/humedad.png" height="50" class="colorTituloCard" alt="Icono Humedad Ambiente" /> Humedad Ambiente
+    <img src="../assets/icos/humedad.png" height="50" class="colorTituloCard" alt="Icono Humedad Ambiente" /><span class="">Humedad Ambiente</span> 
 </button>
 <div class="panel centrarGrafico">
     <div class="col-sm-12 col-md-6 centrarGrafico">
@@ -60,7 +60,7 @@
 </div>
 <div class="col-md-6">
     <button class="accordion">
-    <img src="../assets/icos/humedadTierra.png" height="50" class="colorTituloCard" alt="Icono Humedad Tierra" /> Humedad Tierra
+    <img src="../assets/icos/humedadTierra.png" height="50" class="colorTituloCard" alt="Icono Humedad Tierra" /> <span class="">Humedad Tierra</span>
 </button>
 <div class="panel centrarGrafico">
     <div class="col-sm-12 col-md-6 centrarGrafico">
@@ -72,8 +72,10 @@
 </div>
            
 <br/>
-
-        <GraficosFlex/>
+<div v-if="sizeScreenMovil">
+    <GraficosFlex/>
+</div>
+        
 <br/>
 </template>
     
@@ -107,11 +109,23 @@ export default {
         let humAmbiente = [];
         let horas = []
         let acc = document.getElementsByClassName("accordion");
-        
+        let sizeScreenMovil = false;
+        if (screen.width < 600) {
+                sizeScreenMovil = false;
+                console.log("Menos de 600");
+                console.log(screen.width)
+            } 
+            if (screen.width > 600){
+                sizeScreenMovil = true;
+                console.log("Más de 600");
+                console.log(screen.width)
+            }
 
         onMounted(() => {
-           
-   
+            
+            
+        
+        
 
         for (let i = 0; i < acc.length; i++) {
             acc[i].onclick = function(){
@@ -127,14 +141,15 @@ export default {
             pintaGraficaHumAmb();
            
             document.body.style.zoom = "99%";
+           
         })
 
 
 
 
         const face = computed(() => {
-
-            return 1;
+            
+            return 0;
         })
 
         const fetchEstados = () => {
@@ -280,7 +295,7 @@ export default {
 
 
 
-        return { acc, estado, registros, medicion, ultimo, cara1, cara2, cara3, cara4, cara5, face, este, id, tempAmb, copyOfDynos, luz, humTierra };
+        return { sizeScreenMovil, acc, estado, registros, medicion, ultimo, cara1, cara2, cara3, cara4, cara5, face, este, id, tempAmb, copyOfDynos, luz, humTierra };
     }
 
 }
@@ -304,6 +319,9 @@ export default {
   align-items: center;
   width: 99%;
 }
+.centrarTituloBoton{
+    margin-left: 30px;
+}
 
 button.accordion {
     background-color: #eee;
@@ -316,10 +334,13 @@ button.accordion {
     outline: none;
     font-size: 15px;
     transition: 0.4s;
+    border-radius: 15px;
+    margin-top: 15px
 }
 
 button.accordion.active, button.accordion:hover {
     background-color: #ddd;
+    
 }
 
 button.accordion:after {

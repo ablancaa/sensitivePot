@@ -7,6 +7,7 @@ import Registros from '../components/Registros.vue'
 import Galeria from '../views/Galeria.vue'
 import Login from '../views/Login.vue'
 import Graficos from '../views/Graficos.vue'
+import NotFound from '../views/NotFound.vue'
 Sensores-1
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: '/Graficos',
     name: 'Graficos',
     component: Graficos
+  },
+  { 
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound 
   },
   {
     path: '/about',
