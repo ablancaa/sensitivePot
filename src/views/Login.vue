@@ -5,6 +5,8 @@
 <div class="testbox">
     <h1>Sensitive Pot</h1>
     <h5>Login de usuario</h5>
+    <br/>
+    <img src="../assets/icos/Planta.png" height="50"/>
 
   <form action="/">
      <div class="accounttype">

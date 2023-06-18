@@ -3,21 +3,21 @@
         <h1>Gráficos</h1>
         <div class="row">
             <div class="col-md-12" v-if="este == 1">
-                <img :src="cara1" height="200" class="polaroid" />
+                <img :src="cara1" height="" class="polaroid" />
             </div>
         <div class="row">
-            <div class="col-md-12" v-if="este == 2">
-                <img :src="cara2" height="200" class="polaroid" />
+            <div class="col-md-12 " v-if="este == 2">
+                <img :src="cara2" height="" class="polaroid" />
             </div>
         </div>
             <div class="col-md-12" v-if="este == 3">
-                <img :src="cara3" height="200" class="polaroid" />
+                <img :src="cara3" height="" class="polaroid" />
             </div>
             <div class="col-md-12" v-if="este == 4">
-                <img :src="cara4" height="200" class="polaroid" />
+                <img :src="cara4" height="" class="polaroid" />
             </div>
             <div class="col-md-12" v-if="este == 5">
-                <img :src="cara5" height="200" class="polaroid" />
+                <img :src="cara5" height="" class="polaroid" />
             </div>
             </div>
     </div><!-- fin -->
@@ -312,10 +312,9 @@ export default {
     margin-top: 60px;
 }
 .polaroid {
-  height: 140px;
-  width: 180px;
+  height: 200px;
   background-color: white;
-  padding: 10px 10px 20px 10px;
+  padding: 10px 10px 50px 10px;
   border: 1px solid #bfbfbf;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
 }

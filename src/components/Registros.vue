@@ -4,12 +4,12 @@
         <div>
             <h1>Registros</h1>
             <div v-for="estado in estados" :key="estado.id">
-              <img :src="cara1" v-if="estado.estado == 1" class="polaroid" height="200"/>
-              <img :src="cara2" v-if="estado.estado == 2" class="polaroid" height="200"/>
-              <img :src="cara3" v-if="estado.estado == 3" class="polaroid" height="200"/>
-              <img :src="cara4" v-if="estado.estado == 4" class="polaroid" height="200"/>
-              <img :src="cara5" v-if="estado.estado == 5" class="polaroid" height="200"/>
-              <img :src="cara6" v-if="estado.estado == 6" class="polaroid" height="200"/>
+              <img :src="cara1" v-if="estado.estado == 1" class="polaroid" height=""/>
+              <img :src="cara2" v-if="estado.estado == 2" class="polaroid" height=""/>
+              <img :src="cara3" v-if="estado.estado == 3" class="polaroid" height=""/>
+              <img :src="cara4" v-if="estado.estado == 4" class="polaroid" height=""/>
+              <img :src="cara5" v-if="estado.estado == 5" class="polaroid" height=""/>
+              <img :src="cara6" v-if="estado.estado == 6" class="polaroid" height=""/>
               </div>
             </div>
       <br/>
@@ -117,20 +117,20 @@
       }
     }
   };
-  </script>
-  <style>
-    table{
-      width: 100%;
-      border: 1px solid;
-    }
-    .polaroid {
-  height: 140px;
-  background-color: white;
-  padding: 10px 10px 20px 10px;
-  border: 1px solid #bfbfbf;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
-  margin-top: 30px;
-}
+</script>
+<style>
+  table{
+    width: 100%;
+    border: 1px solid;
+  }
+  .polaroid {
+    height: 200px;
+    background-color: white;
+    padding: 10px 10px 50px 10px;
+    border: 1px solid #bfbfbf;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
+    margin-top: 30px;
+  }
 button.accordion {
     background-color: #eee;
     color: #444;
