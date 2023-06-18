@@ -161,7 +161,7 @@ export default {
     let cara2 = "http://clarys.ddns.net/faces/cara2.gif";
     let cara3 = "http://clarys.ddns.net/faces/3.png";
     let cara4 = "http://clarys.ddns.net/faces/4.png";
-    let cara5 = "http://clarys.ddns.net/faces/5.png";
+    let cara5 = "http://clarys.ddns.net/faces/cara5.gif";
     let cara6 = "http://clarys.ddns.net/faces/6.png";
     let cara7 = "http://clarys.ddns.net/faces/7.png";
     let este = ref();
@@ -465,6 +465,7 @@ button.accordion {
     padding: 18px;
     width: 100%;
     border: none;
+    border-radius: 15px;
     text-align: left;
     outline: none;
     font-size: 15px;

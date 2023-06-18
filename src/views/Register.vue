@@ -24,8 +24,9 @@
    <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
    <a href="#" @click="register" class="button">Register</a>
    <hr/>
-   <a href="#" @click="signInWithGoogle" class="button">Sign In Google</a>
+   <!-- <a href="#" @click="signInWithGoogle" class="button">Sign In Google</a> -->
   </form>
+  <br/>
 </div>
 </template>
 
@@ -50,9 +51,9 @@ import {getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
             
         };
 
-        const signInWithGoogle = () =>{
+        // const signInWithGoogle = () =>{
 
-        };
+        // };
 
         //return {email, password, register, signInWithGoogle};
     

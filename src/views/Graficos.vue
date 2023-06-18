@@ -20,7 +20,7 @@
                 <img :src="cara5" height="200" class="polaroid" />
             </div>
             </div>
-            </div><!-- fin -->
+    </div><!-- fin -->
             
 <div class="row">
 
@@ -28,52 +28,52 @@
 </div>
 <br/><br/>
 <div class="row">
-<div class="col-md-6">
-    <button class="accordion"><img src="../assets/icos/celsius.png" height="50" class="colorTituloCard" alt="Icono Temperatura Ambiente" /> <span class="">Temperatura Ambiente</span></button>
-<div class="panel centrarGrafico">
-    
+    <div class="col-md-6">
+        <button class="accordion"><img src="../assets/icos/celsius.png" height="50" class="colorTituloCard" alt="Icono Temperatura Ambiente" /> <span class="">Temperatura Ambiente</span></button>
+        <div class="panel centrarGrafico">
             <div class="col-sm-12 col-md-6 centrarGrafico">
                 <canvas id="myChart1"></canvas>
             </div>
-      
         </div>
-</div>
-<div class="col-md-6">
-  <button class="accordion">
-    <img src="../assets/icos/dom.png" height="50" class="colorTituloCard" alt="Icono Luz Ambiental" /> <span class="">Luz Ambiental</span>
-</button>
-<div class="panel centrarGrafico">
-    <div class="col-sm-12 col-md-6 centrarGrafico">
+    </div>
+    <div class="col-md-6">
+        <button class="accordion">
+            <img src="../assets/icos/dom.png" height="50" class="colorTituloCard" alt="Icono Luz Ambiental" /> <span class="">Luz Ambiental</span>
+        </button>
+        <div class="panel centrarGrafico">
+            <div class="col-sm-12 col-md-6 centrarGrafico">
                 <canvas id="myChart2"></canvas>
             </div>
-</div>
-</div>
-<div class="col-md-6">
-    <button class="accordion">
-    <img src="../assets/icos/humedad.png" height="50" class="colorTituloCard" alt="Icono Humedad Ambiente" /><span class="">Humedad Ambiente</span> 
-</button>
-<div class="panel centrarGrafico">
-    <div class="col-sm-12 col-md-6 centrarGrafico">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <button class="accordion">
+            <img src="../assets/icos/humedad.png" height="50" class="colorTituloCard" alt="Icono Humedad Ambiente" /><span class="">Humedad Ambiente</span> 
+        </button>
+        <div class="panel centrarGrafico">
+            <div class="col-sm-12 col-md-6 centrarGrafico">
                 <canvas id="myChart4"></canvas>
             </div>
-</div>
-</div>
-<div class="col-md-6">
-    <button class="accordion">
-    <img src="../assets/icos/humedadTierra.png" height="50" class="colorTituloCard" alt="Icono Humedad Tierra" /> <span class="">Humedad Tierra</span>
-</button>
-<div class="panel centrarGrafico">
-    <div class="col-sm-12 col-md-6 centrarGrafico">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <button class="accordion">
+            <img src="../assets/icos/humedadTierra.png" height="50" class="colorTituloCard" alt="Icono Humedad Tierra" /> <span class="">Humedad Tierra</span>
+        </button>
+        <div class="panel centrarGrafico">
+            <div class="col-sm-12 col-md-6 centrarGrafico">
                 <canvas id="myChart3"></canvas>
             </div>
-     </div>
-</div>
-
-</div>
+        </div>
+    </div>
+</div><!-- FIN DE ROW -->
            
 <br/>
-<div v-if="sizeScreenMovil">
+<div v-if="!sizeScreenMovil">
     <GraficosFlex/>
+</div>
+<div else>
+
 </div>
         
 <br/>
@@ -95,10 +95,10 @@ export default {
         let medicion = ref([]);
         let ultimo = ref([]);
         let cara1 = "http://clarys.ddns.net/faces/1.png";
-        let cara2 = "http://clarys.ddns.net/faces/2.png";
+        let cara2 = "http://clarys.ddns.net/faces/cara2.gif";
         let cara3 = "http://clarys.ddns.net/faces/3.png";
         let cara4 = "http://clarys.ddns.net/faces/4.png";
-        let cara5 = "http://clarys.ddns.net/faces/5.png";
+        let cara5 = "http://clarys.ddns.net/faces/cara5.gif";
 
         let este = ref();
         let id = ref([]);
@@ -110,20 +110,26 @@ export default {
         let horas = []
         let acc = document.getElementsByClassName("accordion");
         let sizeScreenMovil = false;
+        let sizeScreenDesktop = false;
+        
         if (screen.width < 600) {
-                sizeScreenMovil = false;
+                sizeScreenMovil = true;
                 console.log("Menos de 600");
                 console.log(screen.width)
             } 
             if (screen.width > 600){
-                sizeScreenMovil = true;
+                sizeScreenMovil = false;
                 console.log("Más de 600");
                 console.log(screen.width)
             }
 
         onMounted(() => {
             
-            
+            // if(window.innerHeight > window.innerWidth) {
+            //     alert("Vertical"); 
+            // } else {     
+            //     alert("Horizontal"); 
+            // }
         
         
 
@@ -295,7 +301,7 @@ export default {
 
 
 
-        return { sizeScreenMovil, acc, estado, registros, medicion, ultimo, cara1, cara2, cara3, cara4, cara5, face, este, id, tempAmb, copyOfDynos, luz, humTierra };
+        return { sizeScreenDesktop, sizeScreenMovil, acc, estado, registros, medicion, ultimo, cara1, cara2, cara3, cara4, cara5, face, este, id, tempAmb, copyOfDynos, luz, humTierra };
     }
 
 }

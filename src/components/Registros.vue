@@ -4,22 +4,43 @@
         <div>
             <h1>Registros</h1>
             <div v-for="estado in estados" :key="estado.id">
-              <img src="../assets/faces/1.png" v-if="estado.estado == 1" class="polaroid" height="200"/>
-              <img src="../assets/faces/2.png" v-if="estado.estado == 2" class="polaroid" height="200"/>
-              <img src="../assets/faces/3.png" v-if="estado.estado == 3" class="polaroid" height="200"/>
-              <img src="../assets/faces/4.png" v-if="estado.estado == 4" class="polaroid" height="200"/>
-              <img src="../assets/faces/5.png" v-if="estado.estado == 5" class="polaroid" height="200"/>
-              <img src="../assets/faces/6.png" v-if="estado.estado == 6" class="polaroid" height="200"/>
+              <img :src="cara1" v-if="estado.estado == 1" class="polaroid" height="200"/>
+              <img :src="cara2" v-if="estado.estado == 2" class="polaroid" height="200"/>
+              <img :src="cara3" v-if="estado.estado == 3" class="polaroid" height="200"/>
+              <img :src="cara4" v-if="estado.estado == 4" class="polaroid" height="200"/>
+              <img :src="cara5" v-if="estado.estado == 5" class="polaroid" height="200"/>
+              <img :src="cara6" v-if="estado.estado == 6" class="polaroid" height="200"/>
               </div>
             </div>
       <br/>
-      <button class="accordion"><img src="../assets/icos/editar.png" height="50" class="colorTituloCard" alt="Icono Registros" /> Registro de sensores</button>
-<div class="panel centrarGrafico">
+      <!-- <button class="accordion"><img src="../assets/icos/editar.png" height="50" class="colorTituloCard" alt="Icono Registros" /> Registro de sensores</button>
+      <div class="panel centrarGrafico">
     
-  <div class="container">
-      <div>
+      <div class="container">
+          <div>
 
-      </div>
+          </div>
+          <table>
+            <tr>
+              <td><strong>Hora</strong></td>
+              <td><strong>Temperatura <br/>Ambiente</strong></td>
+              <td><strong>Luz <br/>Ambiente</strong></td>
+              <td><strong>Humedad<br/>Ambiente</strong></td>
+              <td><strong>Humedad<br/> Tierra</strong></td>
+              
+            </tr>
+            <tr v-for="registro in registros" :key="registro.id">
+              <td>{{ registro.hora }}</td>
+              <td class="textoGrandeTem">{{ registro.tempAmb }}</td>
+              <td class="textoGrandeLuz">{{ registro.luzAmb }}</td>
+              <td class="textoGrandeHum">{{ registro.humAmb }}</td>
+              <td class="textoGrandeHumTie">{{ registro.humTer }}</td>  
+            </tr>
+          </table>
+        </div>
+          
+      </div> -->
+      <br/><br/>
       <table>
         <tr>
           <td><strong>Hora</strong></td>
@@ -27,33 +48,13 @@
           <td><strong>Luz <br/>Ambiente</strong></td>
           <td><strong>Humedad<br/>Ambiente</strong></td>
           <td><strong>Humedad<br/> Tierra</strong></td>
-          
-        </tr>
-        <tr v-for="registro in registros" :key="registro.id">
-          <td>{{ registro.hora }}</td>
-          <td class="textoGrandeTem">{{ registro.tempAmb }}</td>
-          <td class="textoGrandeLuz">{{ registro.luzAmb }}</td>
-          <td class="textoGrandeHum">{{ registro.humAmb }}</td>
-          <td class="textoGrandeHumTie">{{ registro.humTer }}</td>  
-        </tr>
-      </table>
-    </div>
-      
-  </div>
-      <table>
-        <tr>
-            <td>Hora</td>
-            <td>Temperatura Ambiente</td>
-            <td>Humedad Ambiente</td>
-            <td>Humedad Tierra</td>
-            <td>Luz Ambiente</td>
         </tr>
         <tr v-for="registro in registros" :key="registro.id">
             <td>{{registro.hora }}</td>
-            <td>{{registro.tempAmb }}</td>
-            <td>{{registro.humAmb }}</td>
-            <td>{{registro.humTer }}</td>
-            <td>{{registro.luzAmb }}</td>
+            <td class="textoGrandeTem">{{registro.tempAmb }}</td>
+            <td class="textoGrandeHum">{{registro.humAmb }}</td>
+            <td class="textoGrandeHumTie">{{registro.humTer }}</td>
+            <td class="textoGrandeLuz">{{registro.luzAmb }}</td>
         </tr>
       </table>
     </div>
@@ -67,7 +68,11 @@
       return {
         registros: [],
         estados: [],
-        cara1: 1,
+         cara1: "http://clarys.ddns.net/faces/1.png",
+         cara2: "http://clarys.ddns.net/faces/cara2.gif",
+         cara3: "http://clarys.ddns.net/faces/3.png",
+         cara4: "http://clarys.ddns.net/faces/4.png",
+         cara5: "http://clarys.ddns.net/faces/cara5.gif",
         acc: document.getElementsByClassName("accordion"),
       };
     },
@@ -167,5 +172,34 @@ div.panel {
 div.panel.show {
     opacity: 1;
     max-height: 2250px;
+}
+.marcador,td {
+  margin-left: 15px;
+  font-size: 16px;
+  border-radius: 20px;
+  box-shadow: 20px 20px 30px rgba(185, 185, 176, 0.8);
+}
+.textoGrandeTem{
+  font-size: 25px;
+  color: rgb(255, 0, 0);
+}
+.textoGrandeLuz{
+  font-size: 25px;
+  color: rgb(228, 149, 2);
+}
+.textoGrandeHum{
+  font-size: 25px;
+  color: rgb(48, 148, 241);
+}
+.textoGrandeHumTie{
+  font-size: 25px;
+  color: rgb(10, 156, 30);
+}
+table,td,tr {
+  border: 0px;;
+  border-style: none;
+}
+.espacioTop {
+  margin-top: 10px;
 }
   </style>

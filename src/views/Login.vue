@@ -21,7 +21,7 @@
    <!-- <a href="#" @click="register" class="button">Register</a> -->
    <a href="#" @click="register" class="button">Sign In</a>
    <hr/>
-   <a href="#" @click="signInWithGoogle" class="button">Sign In Google</a>
+   <!-- <a href="#" @click="signInWithGoogle" class="button">Sign In Google</a> -->
   </form>
 </div>
 </template>
