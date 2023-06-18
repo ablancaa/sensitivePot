@@ -52,9 +52,9 @@
         <tr v-for="registro in registros" :key="registro.id">
             <td>{{registro.hora }}</td>
             <td class="textoGrandeTem">{{registro.tempAmb }}</td>
+            <td class="textoGrandeLuz">{{registro.luzAmb }}</td>
             <td class="textoGrandeHum">{{registro.humAmb }}</td>
             <td class="textoGrandeHumTie">{{registro.humTer }}</td>
-            <td class="textoGrandeLuz">{{registro.luzAmb }}</td>
         </tr>
       </table>
     </div>
