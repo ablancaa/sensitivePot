@@ -9,7 +9,7 @@
     </button>
     <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Sensitive Pot Menú</h5><img src="../assets/icos/Planta.png" height="40"/>
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Sensitive Pot Menú</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       
@@ -59,11 +59,16 @@
             </ul>
           </li> -->
         </ul>
+        
         <!-- <form class="d-flex mt-3" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-success" type="submit">Search</button>
         </form> -->
+        <div class="logo">
+          <img src="../assets/icos/Planta.png" height="120"/>
+        </div>
       </div>
+      
     </div>
   </div>
 </nav>
@@ -90,5 +95,8 @@ let usuario = localStorage.user;
 <style scoped>
 .navbar{
   width: 100%;
+}
+.logo{
+  margin-top: 20px;
 }
 </style>
