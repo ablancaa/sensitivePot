@@ -43,6 +43,13 @@
       <br/><br/>
       <table>
         <tr>
+          <td><strong></strong></td>
+          <td><img src="../assets/icos/celsius.png" height="50" class="icoBotton colorTituloTemAmb" alt="Icono Humedad Tierra" /></td>
+          <td><img src="../assets/icos/dom.png" height="50" class="icoBotton colorTituloLuzAmb" alt="Icono Sol" /></td>
+          <td><img src="../assets/icos/humedad.png" height="50" class="icoBotton colorTituloHumAmb" alt="Icono Humedad" /></td>
+          <td><img src="../assets/icos/humedadTierra.png" height="50" class="icoBotton colorTituloHumTie" alt="Icono Humedad Tierra" /></td>
+        </tr>
+        <tr>
           <td><strong>Hora</strong></td>
           <td><strong>Temperatura <br/>Ambiente</strong></td>
           <td><strong>Luz <br/>Ambiente</strong></td>
@@ -201,5 +208,25 @@ table,td,tr {
 }
 .espacioTop {
   margin-top: 10px;
+}
+.colorTituloTemAmb{
+    background-color: red;
+    border-radius: 10px;
+    padding: 5px;
+}
+.colorTituloLuzAmb{
+    background-color: orange;
+    border-radius: 10px;
+    padding: 5px;
+}
+.colorTituloHumAmb{
+    background-color: rgb(7, 153, 197);
+    border-radius: 10px;
+    padding: 5px;
+}
+.colorTituloHumTie{
+    background-color: green;
+    border-radius: 10px;
+    padding: 5px;
 }
   </style>
