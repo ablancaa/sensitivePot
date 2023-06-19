@@ -511,20 +511,24 @@ div.panel.show {
     background-color: red;
     border-radius: 10px;
     padding: 5px;
+    box-shadow: 10px 1px 5px 1px rgba(255, 147, 147, 0.8);
 }
 .colorTituloLuzAmb{
     background-color: orange;
     border-radius: 10px;
     padding: 5px;
+    box-shadow: 10px 1px 5px 1px rgba(248, 197, 120, 0.8);
 }
 .colorTituloHumAmb{
     background-color: rgb(7, 153, 197);
     border-radius: 10px;
     padding: 5px;
+    box-shadow: 10px 1px 5px 1px rgb(171, 233, 252);
 }
 .colorTituloHumTie{
     background-color: green;
     border-radius: 10px;
     padding: 5px;
+    box-shadow: 10px 1px 5px 1px rgb(180, 250, 186);
 }
 </style>
