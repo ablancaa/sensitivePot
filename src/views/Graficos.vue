@@ -29,7 +29,7 @@
 <br/><br/>
 <div class="row">
     <div class="col-md-6">
-        <button class="accordion"><img src="../assets/icos/celsius.png" height="50" class="colorTituloCard" alt="Icono Temperatura Ambiente" /> <span class="">Temperatura Ambiente</span></button>
+        <button class="accordion"><img src="../assets/icos/celsius.png" height="50" class="colorTituloTemAmb marginRight" alt="Icono Temperatura Ambiente" /> <span class="">Temperatura Ambiente</span></button>
         <div class="panel centrarGrafico">
             <div class="col-sm-12 col-md-6 centrarGrafico">
                 <canvas id="myChart1"></canvas>
@@ -38,7 +38,7 @@
     </div>
     <div class="col-md-6">
         <button class="accordion">
-            <img src="../assets/icos/dom.png" height="50" class="colorTituloCard" alt="Icono Luz Ambiental" /> <span class="">Luz Ambiental</span>
+            <img src="../assets/icos/dom.png" height="50" class="colorTituloLuzAmb marginRight" alt="Icono Luz Ambiental" /> <span class="">Luz Ambiental</span>
         </button>
         <div class="panel centrarGrafico">
             <div class="col-sm-12 col-md-6 centrarGrafico">
@@ -48,7 +48,7 @@
     </div>
     <div class="col-md-6">
         <button class="accordion">
-            <img src="../assets/icos/humedad.png" height="50" class="colorTituloCard" alt="Icono Humedad Ambiente" /><span class="">Humedad Ambiente</span> 
+            <img src="../assets/icos/humedad.png" height="50" class="colorTituloHumAmb marginRight" alt="Icono Humedad Ambiente" /><span class="">Humedad Ambiente</span> 
         </button>
         <div class="panel centrarGrafico">
             <div class="col-sm-12 col-md-6 centrarGrafico">
@@ -58,7 +58,7 @@
     </div>
     <div class="col-md-6">
         <button class="accordion">
-            <img src="../assets/icos/humedadTierra.png" height="50" class="colorTituloCard" alt="Icono Humedad Tierra" /> <span class="">Humedad Tierra</span>
+            <img src="../assets/icos/humedadTierra.png" height="50" class="colorTituloHumTie marginRight" alt="Icono Humedad Tierra" /> <span class="">Humedad Tierra</span>
         </button>
         <div class="panel centrarGrafico">
             <div class="col-sm-12 col-md-6 centrarGrafico">
@@ -372,5 +372,28 @@ div.panel {
 div.panel.show {
     opacity: 1;
     max-height: 900px;
+}
+.marginRight{
+    margin-right: 60px;
+}
+.colorTituloTemAmb{
+    background-color: red;
+    border-radius: 10px;
+    padding: 5px;
+}
+.colorTituloLuzAmb{
+    background-color: orange;
+    border-radius: 10px;
+    padding: 5px;
+}
+.colorTituloHumAmb{
+    background-color: rgb(7, 153, 197);
+    border-radius: 10px;
+    padding: 5px;
+}
+.colorTituloHumTie{
+    background-color: green;
+    border-radius: 10px;
+    padding: 5px;
 }
 </style>

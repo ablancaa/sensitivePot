@@ -65,10 +65,10 @@
       <div class="col-md-12">
         <table>
           <tr>
-            <td><img src="../assets/icos/celsius.png" height="50" class="" alt="Icono Humedad Tierra" /><p><strong>Temperatura Ambiente</strong></p></td>
-            <td><img src="../assets/icos/dom.png" height="50" class="" alt="Icono Sol" /><p><strong>Luz Ambiental</strong></p></td>
-            <td><img src="../assets/icos/humedad.png" height="50" class="" alt="Icono Humedad" /><p><strong>Humedad Ambiente</strong></p></td>
-            <td><img src="../assets/icos/humedadTierra.png" height="50" class="" alt="Icono Humedad Tierra" /><p><strong>Humedad Tierra</strong></p></td>
+            <td><img src="../assets/icos/celsius.png" height="50" class="icoBotton" alt="Icono Humedad Tierra" /><p><strong>Temperatura Ambiente</strong></p></td>
+            <td><img src="../assets/icos/dom.png" height="50" class="icoBotton" alt="Icono Sol" /><p><strong>Luz Ambiental</strong></p></td>
+            <td><img src="../assets/icos/humedad.png" height="50" class="icoBotton" alt="Icono Humedad" /><p><strong>Humedad Ambiente</strong></p></td>
+            <td><img src="../assets/icos/humedadTierra.png" height="50" class="icoBotton" alt="Icono Humedad Tierra" /><p><strong>Humedad Tierra</strong></p></td>
           </tr>
           <tr>
             <td class="marcador textoGrandeTem">{{ registros[0].tempAmb }}</td>
@@ -109,7 +109,7 @@
     
 
    <br /><br />
-   <button class="accordion"><img src="../assets/icos/editar.png" height="50" class="colorTituloCard" alt="Icono Registros" /> Registro de sensores</button>
+   <button class="accordion"><img src="../assets/icos/editar.png" height="50" class="marginRight" alt="Icono Registros" /> Registro de sensores</button>
 <div class="panel centrarGrafico">
     
   <div class="container">
@@ -500,5 +500,11 @@ div.panel {
 div.panel.show {
     opacity: 1;
     max-height: 2250px;
+}
+.icoBotton {
+  margin-bottom: 10px;
+}
+.marginRight{
+    margin-right: 60px;
 }
 </style>
