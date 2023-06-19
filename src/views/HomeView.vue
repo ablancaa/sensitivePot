@@ -60,6 +60,7 @@
 
 
   <div class="container">
+    
     <br/><br/>
     <div class="row">
       <div class="col-md-12">
@@ -84,9 +85,20 @@
       
    </div>
     </div>
+    <br/>
+ 
+    <div class="container" v-if="!sizeScreenMovil">
+    <div class="col-sm-12 col-md-12 centrarGrafico">
+        <canvas id="myChart5"></canvas>
+      </div>
+  </div>
+
     <br />
-    <br />
-    <div class="container">
+
+    <button class="accordion"><img src="../assets/icos/grafico-de-linea.png" height="50" class="marginRight" alt="Icono Registros" /> Graficos</button>
+<div class="panel">
+    
+  <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-6 centrarGrafico">
           <canvas id="myChart1"></canvas>
@@ -100,15 +112,27 @@
         <div class="col-sm-12 col-md-6 centrarGrafico">
           <canvas id="myChart3"></canvas>
         </div>
-        
       </div>
-      
-   
     </div>
+      
+  </div>
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 centrarGrafico"> -->
+          <!-- <canvas id="myChart1"></canvas> -->
+        <!-- </div> -->
+        <!-- <div class="col-sm-12 col-md-6 centrarGrafico"> -->
+          <!-- <canvas id="myChart2"></canvas> -->
+        <!-- </div>
+        <div class="col-sm-12 col-md-6 centrarGrafico"> -->
+          <!-- <canvas id="myChart4"></canvas> -->
+        <!-- </div>
+        <div class="col-sm-12 col-md-6 centrarGrafico"> -->
+          <!-- <canvas id="myChart3"></canvas> -->
+        <!-- </div>
+      </div>
+    </div> -->
     <br />
-    
-
-   <br /><br />
    <button class="accordion"><img src="../assets/icos/editar.png" height="50" class="marginRight" alt="Icono Registros" /> Registro de sensores</button>
 <div class="panel centrarGrafico">
     
@@ -136,7 +160,11 @@
     </div>
       
   </div>
-        <br/>
+  <br/>
+
+
+        
+        
 </template>
 
 <script>
@@ -171,8 +199,21 @@ export default {
     let luz = [];
     let humTierra = [];
     let humAmbiente = [];
-    let horas = []
+    let horas = [];
+    let sizeScreenMovil = false;
     let acc = document.getElementsByClassName("accordion");
+
+    if (screen.width < 600) {
+                sizeScreenMovil = true;
+                console.log("Menos de 600");
+                console.log(screen.width)
+            } 
+            if (screen.width > 600){
+                sizeScreenMovil = false;
+                console.log("Más de 600");
+                console.log(screen.width)
+            }
+
     onMounted(() => {
       for (let i = 0; i < acc.length; i++) {
             acc[i].onclick = function(){
@@ -186,9 +227,11 @@ export default {
       pintaGraficaLuz();
       pintaGraficaHumTer();
       pintaGraficaHumAmb();
+      pintaGraficaTodo();
 
       setInterval("location.reload()", 120000);
       document.body.style.zoom = "99%";
+      
     });
 
     const face = computed(() => {
@@ -322,6 +365,60 @@ export default {
           }]
         },
         options: {
+         
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+    }
+    const pintaGraficaTodo = () => {
+     const datos1 = {
+      label: "Temperatura Ambiente / ",
+      data: copyOfDynos, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+      backgroundColor: 'red',// Color de fondo
+      borderColor: 'red',// Color del borde
+      borderWidth: 1,// Ancho del borde
+     };
+     const datos2 = {
+      label: "Luz Ambiental / ",
+      data: luz, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+      backgroundColor: 'orange',// Color de fondo
+      borderColor: 'orange',// Color del borde
+      borderWidth: 1,// Ancho del borde
+     };
+     const datos3 = {
+      label: "Humedad Ambiental / ",
+      data: humAmbiente, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+      backgroundColor: 'rgba(35, 153, 240)',// Color de fondo
+      borderColor: 'rgba(35, 153, 240)',// Color del borde
+      borderWidth: 1,// Ancho del borde
+     };
+     const datos4 = {
+      label: "Humedad Tierra ",
+      data: humTierra, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+      backgroundColor: 'green',// Color de fondo
+      borderColor: 'green',// Color del borde
+      borderWidth: 1,// Ancho del borde
+     };
+     
+    const ctx = document.getElementById("myChart5");
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: horas,
+            datasets: [
+              datos1,
+              datos2,
+              datos3,
+              datos4
+            ],
+            borderWidth: 1
+        },
+        options: {
           scales: {
             y: {
               beginAtZero: true
@@ -344,7 +441,7 @@ export default {
       cara6,
       cara7,
       face,
-      este, tempAmb, copyOfDynos, luz, humTierra, id
+      este, tempAmb, copyOfDynos, luz, humTierra, id, sizeScreenMovil
     };
   },
 };
@@ -421,6 +518,7 @@ li {
   border-radius: 20px;
   border: 5px solid #bfbfbf;
   box-shadow: 20px 20px 30px rgba(104, 104, 103, 0.8);
+  
 }
 
 .marcador,td {
@@ -428,6 +526,7 @@ li {
   font-size: 16px;
   border-radius: 20px;
   box-shadow: 20px 20px 30px rgba(185, 185, 176, 0.8);
+  
 }
 .textoGrandeTem{
   font-size: 25px;
@@ -511,13 +610,13 @@ div.panel.show {
     background-color: red;
     border-radius: 10px;
     padding: 5px;
-    box-shadow: 10px 1px 5px 1px rgba(255, 147, 147, 0.8);
+    box-shadow: 10px 1px 5px 1px rgba(255, 167, 167, 0.8);
 }
 .colorTituloLuzAmb{
     background-color: orange;
     border-radius: 10px;
     padding: 5px;
-    box-shadow: 10px 1px 5px 1px rgba(248, 197, 120, 0.8);
+    box-shadow: 10px 1px 5px 1px rgba(245, 198, 128, 0.8);
 }
 .colorTituloHumAmb{
     background-color: rgb(7, 153, 197);
@@ -530,5 +629,12 @@ div.panel.show {
     border-radius: 10px;
     padding: 5px;
     box-shadow: 10px 1px 5px 1px rgb(180, 250, 186);
+}
+.grande {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.myChart5{
 }
 </style>
