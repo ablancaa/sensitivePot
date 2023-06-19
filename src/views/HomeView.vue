@@ -65,10 +65,10 @@
       <div class="col-md-12">
         <table>
           <tr>
-            <td><img src="../assets/icos/celsius.png" height="50" class="icoBotton" alt="Icono Humedad Tierra" /><p><strong>Temperatura Ambiente</strong></p></td>
-            <td><img src="../assets/icos/dom.png" height="50" class="icoBotton" alt="Icono Sol" /><p><strong>Luz Ambiental</strong></p></td>
-            <td><img src="../assets/icos/humedad.png" height="50" class="icoBotton" alt="Icono Humedad" /><p><strong>Humedad Ambiente</strong></p></td>
-            <td><img src="../assets/icos/humedadTierra.png" height="50" class="icoBotton" alt="Icono Humedad Tierra" /><p><strong>Humedad Tierra</strong></p></td>
+            <td><img src="../assets/icos/celsius.png" height="50" class="icoBotton colorTituloTemAmb" alt="Icono Humedad Tierra" /><p><strong>Temperatura Ambiente</strong></p></td>
+            <td><img src="../assets/icos/dom.png" height="50" class="icoBotton colorTituloLuzAmb" alt="Icono Sol" /><p><strong>Luz Ambiental</strong></p></td>
+            <td><img src="../assets/icos/humedad.png" height="50" class="icoBotton colorTituloHumAmb" alt="Icono Humedad" /><p><strong>Humedad Ambiente</strong></p></td>
+            <td><img src="../assets/icos/humedadTierra.png" height="50" class="icoBotton colorTituloHumTie" alt="Icono Humedad Tierra" /><p><strong>Humedad Tierra</strong></p></td>
           </tr>
           <tr>
             <td class="marcador textoGrandeTem">{{ registros[0].tempAmb }}</td>
@@ -506,5 +506,25 @@ div.panel.show {
 }
 .marginRight{
     margin-right: 60px;
+}
+.colorTituloTemAmb{
+    background-color: red;
+    border-radius: 10px;
+    padding: 5px;
+}
+.colorTituloLuzAmb{
+    background-color: orange;
+    border-radius: 10px;
+    padding: 5px;
+}
+.colorTituloHumAmb{
+    background-color: rgb(7, 153, 197);
+    border-radius: 10px;
+    padding: 5px;
+}
+.colorTituloHumTie{
+    background-color: green;
+    border-radius: 10px;
+    padding: 5px;
 }
 </style>
