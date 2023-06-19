@@ -2,7 +2,7 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
    
-    <router-link to="/" class="nav-link active" aria-current="page"><img src="../assets/icos/Planta.png" height="40"/> | <a class="navbar-brand" href="#">Sensitive Pot </a></router-link>
+    <router-link to="/" class="nav-link active" aria-current="page"><img src="../assets/icos/Planta.png" height="40"/> <div class="margen"><a class="navbar-brand" href="#">Sensitive Pot</a></div></router-link>
   
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -98,5 +98,10 @@ let usuario = localStorage.user;
 }
 .logo{
   margin-top: 20px;
+}
+.margen {
+  float: right;
+  margin-top: 16px;
+  margin-left: 8px;
 }
 </style>

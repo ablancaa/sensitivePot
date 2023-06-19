@@ -419,6 +419,7 @@ export default {
             borderWidth: 1
         },
         options: {
+          responsive: true,
           scales: {
             y: {
               beginAtZero: true
