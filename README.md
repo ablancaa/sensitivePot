@@ -1,7 +1,7 @@
 # sensitivepot
-Este proyecto contiene:
--> Archivo de configuración de arduino
--> Web responsive SensitivePot
+Este proyecto contiene:<br/>
+   -> Archivo de configuración de arduino<br/>
+   -> Web responsive SensitivePot<br/>
 Desarrollado en Vue.JS, MySql, PHP, AXIOS, Charts.JS
 
 ## Project setup
