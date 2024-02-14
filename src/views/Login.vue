@@ -1,7 +1,6 @@
 <template>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
-
 <div class="testbox">
     <h1>Sensitive Pot</h1>
     <h5>Login de usuario</h5>
@@ -27,12 +26,12 @@
   </form>
 </div>
 </template>
-
 <script setup>
 import router from '../router';
 import { ref } from 'vue';
 import { auth } from '../utils/firebase.js';
 import {signInWithEmailAndPassword } from 'firebase/auth';
+//import {getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import "firebase/auth";
 
         const email = ref("");

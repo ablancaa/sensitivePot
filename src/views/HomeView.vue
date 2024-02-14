@@ -185,13 +185,13 @@ export default {
     let estates = ref([]);
     let medicion = ref([]);
     let ultimo = ref([]);
-    let cara1 = "http://clarys.ddns.net/faces/1.png";
-    let cara2 = "http://clarys.ddns.net/faces/cara2.gif";
-    let cara3 = "http://clarys.ddns.net/faces/3.png";
-    let cara4 = "http://clarys.ddns.net/faces/4.png";
-    let cara5 = "http://clarys.ddns.net/faces/cara5.gif";
-    let cara6 = "http://clarys.ddns.net/faces/6.png";
-    let cara7 = "http://clarys.ddns.net/faces/7.png";
+    let cara1 = "https://clarys.duckdns.org/faces/1.png";
+    let cara2 = "https://clarys.duckdns.org/faces/cara2.gif";
+    let cara3 = "https://clarys.duckdns.org/faces/3.png";
+    let cara4 = "https://clarys.duckdns.org/faces/4.png";
+    let cara5 = "https://clarys.duckdns.org/faces/cara5.gif";
+    let cara6 = "https://clarys.duckdns.org/faces/6.png";
+    let cara7 = "https://clarys.duckdns.org/faces/7.png";
     let este = ref();
     let id = ref([]);
     let tempAmb = ref([]);
@@ -242,7 +242,7 @@ export default {
 
     const fetchEstados = () => {
       axios
-        .get("http://clarys.ddns.net:3000/api/estado")
+        .get("https://clarys.duckdns.org:3000/api/estado")
         .then((response) => {
           estates.value = response.data;
           este.value = estates.value[0].estado;
@@ -255,7 +255,7 @@ export default {
 
     const fetchRegistros = () => {
       axios
-        .get("http://clarys.ddns.net:3000/api/dades")
+        .get("https://clarys.duckdns.org:3000/api/dades")
         .then((response) => {
           registros.value = response.data;
           ultimo.value = registros.value.reverse();
@@ -635,7 +635,5 @@ div.panel.show {
   width: 100%;
   height: 100%;
   position: relative;
-}
-.myChart5{
 }
 </style>

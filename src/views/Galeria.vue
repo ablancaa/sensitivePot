@@ -55,6 +55,10 @@
 <script>
 export default {
     name: 'Sensores-1',
+    setup(){
+
+        return {}
+    }
 }
 </script>
 

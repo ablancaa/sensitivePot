@@ -69,17 +69,18 @@
   
   <script>
   import axios from 'axios';
+
   export default {
     name: 'Registro-1',
     data() {
       return {
         registros: [],
         estados: [],
-         cara1: "http://clarys.ddns.net/faces/1.png",
-         cara2: "http://clarys.ddns.net/faces/cara2.gif",
-         cara3: "http://clarys.ddns.net/faces/3.png",
-         cara4: "http://clarys.ddns.net/faces/4.png",
-         cara5: "http://clarys.ddns.net/faces/cara5.gif",
+        cara1: "http://clarys.ddns.net/faces/1.png",
+        cara2: "http://clarys.ddns.net/faces/cara2.gif",
+        cara3: "http://clarys.ddns.net/faces/3.png",
+        cara4: "http://clarys.ddns.net/faces/4.png",
+        cara5: "http://clarys.ddns.net/faces/cara5.gif",
         acc: document.getElementsByClassName("accordion"),
       };
     },
@@ -98,8 +99,8 @@
      this.actualizar();
     },
     methods: {
-      fetchRegistros() {
-        axios.get('http://clarys.ddns.net:3000/api/dades')
+     async fetchRegistros() {
+       await axios.get('http://clarys.ddns.net:3000/api/dades')
           .then(response => {
             this.registros = response.data;
             this.registros.reverse();
@@ -108,8 +109,8 @@
             console.error(error);
           });
       },
-      fetchEstados() {
-        axios.get('http://clarys.ddns.net:3000/api/estado')
+      async fetchEstados() {
+       await axios.get('http://clarys.ddns.net:3000/api/estado')
           .then(response => {
             this.estados = response.data;
           })

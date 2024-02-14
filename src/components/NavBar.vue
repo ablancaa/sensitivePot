@@ -5,11 +5,12 @@
     <router-link to="/" class="nav-link active" aria-current="page"><img src="../assets/icos/Planta.png" height="40"/> <div class="margen"><a class="navbar-brand" href="#">Sensitive Pot</a></div></router-link>
   
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <!-- <span>{{ user.email }}</span> --> <span class="navbar-toggler-icon"></span> 
     </button>
     <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Sensitive Pot Menú</h5>
+        <br/>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       
@@ -65,7 +66,8 @@
           <button class="btn btn-success" type="submit">Search</button>
         </form> -->
         <div class="logo">
-          <img src="../assets/icos/Planta.png" height="120"/>
+          <img src="../assets/icos/Planta.png" height="100"/><br/><br/>
+          <!-- <span>{{ user.email }}</span> -->
         </div>
       </div>
       
@@ -84,8 +86,8 @@ const auth = getAuth();
 const user = auth.currentUser
 localStorage.setItem('user', user);
 let usuario = localStorage.user;
-      //  const auth = getAuth();
-       // const usuarioLogado = auth.currentUser;
+      //const auth = getAuth();
+      //const usuarioLogado = auth.currentUser;
 
         return { user, usuario}
     }

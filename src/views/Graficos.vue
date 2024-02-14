@@ -94,11 +94,11 @@ export default {
         let estado = ref(1);
         let medicion = ref([]);
         let ultimo = ref([]);
-        let cara1 = "http://clarys.ddns.net/faces/1.png";
-        let cara2 = "http://clarys.ddns.net/faces/cara2.gif";
-        let cara3 = "http://clarys.ddns.net/faces/3.png";
-        let cara4 = "http://clarys.ddns.net/faces/4.png";
-        let cara5 = "http://clarys.ddns.net/faces/cara5.gif";
+        let cara1 = "https://clarys.duckdns.org/faces/1.png";
+        let cara2 = "https://clarys.duckdns.org/faces/cara2.gif";
+        let cara3 = "https://clarys.duckdns.org/faces/3.png";
+        let cara4 = "https://clarys.duckdns.org/faces/4.png";
+        let cara5 = "https://clarys.duckdns.org/faces/cara5.gif";
 
         let este = ref();
         let id = ref([]);
@@ -159,7 +159,7 @@ export default {
         })
 
         const fetchEstados = () => {
-            axios.get('http://clarys.ddns.net:3000/api/estado')
+            axios.get('https://clarys.duckdns.org:3000/api/estado')
                 .then(response => {
                     estado.value = response.data;
                     este.value = estado.value[0].estado;
@@ -170,7 +170,7 @@ export default {
         };
 
         const fetchRegistros = () => {
-            axios.get('http://clarys.ddns.net:3000/api/dades')
+            axios.get('https://clarys.duckdns.org:3000/api/dades')
                 .then(response => {
                     registros.value = response.data;
                     ultimo.value = registros.value.reverse();
