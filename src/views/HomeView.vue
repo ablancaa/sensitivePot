@@ -185,7 +185,6 @@ export default {
     let estates = ref([]);
     let medicion = ref([]);
     let ultimo = ref([]);
-<<<<<<< HEAD
     let cara1 = "https://clarys.duckdns.org/faces/1.png";
     let cara2 = "https://clarys.duckdns.org/faces/cara2.gif";
     let cara3 = "https://clarys.duckdns.org/faces/3.png";
@@ -193,15 +192,6 @@ export default {
     let cara5 = "https://clarys.duckdns.org/faces/cara5.gif";
     let cara6 = "https://clarys.duckdns.org/faces/6.png";
     let cara7 = "https://clarys.duckdns.org/faces/7.png";
-=======
-    let cara1 = "http://clarys.duckdns.org/faces/1.png";
-    let cara2 = "http://clarys.duckdns.org/faces/cara2.gif";
-    let cara3 = "http://clarys.duckdns.org/faces/3.png";
-    let cara4 = "http://clarys.duckdns.org/faces/4.png";
-    let cara5 = "http://clarys.duckdns.org/faces/cara5.gif";
-    let cara6 = "http://clarys.duckdns.org/faces/6.png";
-    let cara7 = "http://clarys.duckdns.org/faces/7.png";
->>>>>>> 70b9781527fc7a1519daea4d5f1b088648d7ea3c
     let este = ref();
     let id = ref([]);
     let tempAmb = ref([]);
@@ -252,11 +242,7 @@ export default {
 
     const fetchEstados = () => {
       axios
-<<<<<<< HEAD
         .get("https://clarys.duckdns.org:3000/api/estado")
-=======
-        .get("http://clarys.duckdns.org:3000/api/estado")
->>>>>>> 70b9781527fc7a1519daea4d5f1b088648d7ea3c
         .then((response) => {
           estates.value = response.data;
           este.value = estates.value[0].estado;
@@ -269,11 +255,7 @@ export default {
 
     const fetchRegistros = () => {
       axios
-<<<<<<< HEAD
         .get("https://clarys.duckdns.org:3000/api/dades")
-=======
-        .get("http://clarys.duckdns.org:3000/api/dades")
->>>>>>> 70b9781527fc7a1519daea4d5f1b088648d7ea3c
         .then((response) => {
           registros.value = response.data;
           ultimo.value = registros.value.reverse();
