@@ -76,11 +76,11 @@
       return {
         registros: [],
         estados: [],
-        cara1: "http://clarys.ddns.net/faces/1.png",
-        cara2: "http://clarys.ddns.net/faces/cara2.gif",
-        cara3: "http://clarys.ddns.net/faces/3.png",
-        cara4: "http://clarys.ddns.net/faces/4.png",
-        cara5: "http://clarys.ddns.net/faces/cara5.gif",
+        cara1: "https://clarys.duckdns.org/faces/1.png",
+        cara2: "https://clarys.duckdns.org/faces/cara2.gif",
+        cara3: "https://clarys.duckdns.org/faces/3.png",
+        cara4: "https://clarys.duckdns.org/faces/4.png",
+        cara5: "https://clarys.duckdns.org/faces/cara5.gif",
         acc: document.getElementsByClassName("accordion"),
       };
     },
