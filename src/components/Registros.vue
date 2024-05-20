@@ -100,7 +100,7 @@
     },
     methods: {
      async fetchRegistros() {
-       await axios.get('http://clarys.ddns.net:3000/api/dades')
+       await axios.get('https://clarys.duckdns.org:3001/api/dades')
           .then(response => {
             this.registros = response.data;
             this.registros.reverse();
@@ -110,7 +110,7 @@
           });
       },
       async fetchEstados() {
-       await axios.get('http://clarys.ddns.net:3000/api/estado')
+       await axios.get('https://clarys.duckdns.org:3001/api/estado')
           .then(response => {
             this.estados = response.data;
           })

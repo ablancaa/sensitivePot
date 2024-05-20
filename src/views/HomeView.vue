@@ -179,7 +179,7 @@ export default {
   components: { Reloj },
   setup() {
     const sensitivePot = "Sensitive Pot";
-    const img = "http://localhost/src/assets/logo.png";
+    const img = "https://localhost/src/assets/logo.png";
 
     let registros = ref([{}]);
     let estates = ref([]);
@@ -242,7 +242,7 @@ export default {
 
     const fetchEstados = () => {
       axios
-        .get("https://clarys.duckdns.org:3000/api/estado")
+        .get("https://clarys.duckdns.org:3001/api/estado")
         .then((response) => {
           estates.value = response.data;
           este.value = estates.value[0].estado;
@@ -255,7 +255,7 @@ export default {
 
     const fetchRegistros = () => {
       axios
-        .get("https://clarys.duckdns.org:3000/api/dades")
+        .get("https://clarys.duckdns.org:3001/api/dades")
         .then((response) => {
           registros.value = response.data;
           ultimo.value = registros.value.reverse();
