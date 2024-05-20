@@ -19,6 +19,9 @@
             <div class="col-md-12" v-if="este == 5">
                 <img :src="cara5" height="" class="polaroid" />
             </div>
+            <div class="col-md-12" v-if="este == 6">
+                <img :src="cara6" height="" class="polaroid" />
+            </div>
             </div>
     </div><!-- fin -->
             
@@ -99,6 +102,7 @@ export default {
         let cara3 = "https://clarys.duckdns.org/faces/3.png";
         let cara4 = "https://clarys.duckdns.org/faces/4.png";
         let cara5 = "https://clarys.duckdns.org/faces/cara5.gif";
+        let cara6 = "https://clarys.duckdns.org/faces/6.png";
 
         let este = ref();
         let id = ref([]);
@@ -301,7 +305,7 @@ export default {
 
 
 
-        return { sizeScreenDesktop, sizeScreenMovil, acc, estado, registros, medicion, ultimo, cara1, cara2, cara3, cara4, cara5, face, este, id, tempAmb, copyOfDynos, luz, humTierra };
+        return { sizeScreenDesktop, sizeScreenMovil, acc, estado, registros, medicion, ultimo, cara1, cara2, cara3, cara4, cara5, cara6, face, este, id, tempAmb, copyOfDynos, luz, humTierra };
     }
 
 }

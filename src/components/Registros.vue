@@ -126,7 +126,8 @@
       }
     }
   };
-</script>
+  </script>
+
 <style>
   table{
     width: 100%;
