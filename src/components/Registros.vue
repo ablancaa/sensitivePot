@@ -81,6 +81,7 @@
         cara3: "https://clarys.duckdns.org/faces/3.png",
         cara4: "https://clarys.duckdns.org/faces/4.png",
         cara5: "https://clarys.duckdns.org/faces/cara5.gif",
+        cara6: "https://clarys.duckdns.org/faces/6.png",
         acc: document.getElementsByClassName("accordion"),
       };
     },
