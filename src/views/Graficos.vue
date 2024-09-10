@@ -1,9 +1,10 @@
 <template>
     <div class="container">
         <h1>Gráficos</h1>
+          
         <div class="row">
-            <div class="col-md-12" v-if="este == 1">
-                <img :src="cara1" height="" class="polaroid" />
+            <div class="col-md-12" v-if="registros.estado == 1">
+                <img :src="cara1" height="50" class="polaroid" />
             </div>
         <div class="row">
             <div class="col-md-12 " v-if="este == 2">
@@ -16,7 +17,7 @@
             <div class="col-md-12" v-if="este == 4">
                 <img :src="cara4" height="" class="polaroid" />
             </div>
-            <div class="col-md-12" v-if="este == 5">
+            <div class="col-md-12" v-if="registros.estado == 5">
                 <img :src="cara5" height="" class="polaroid" />
             </div>
             <div class="col-md-12" v-if="este == 6">
@@ -70,23 +71,25 @@
         </div>
     </div>
 </div><!-- FIN DE ROW -->
-           
+
 <br/>
 <div v-if="!sizeScreenMovil">
     <GraficosFlex/>
 </div>
 <div else>
-
+   
 </div>
-        
+
 <br/>
+
 </template>
     
 <script>
 import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 import Chart from 'chart.js/auto';
-import GraficosFlex from '../components/CardsFlex.vue'
+import GraficosFlex from '../components/CardsFlex.vue';
+
 export default {
 
     name: 'Graficos-1',
@@ -97,12 +100,12 @@ export default {
         let estado = ref(1);
         let medicion = ref([]);
         let ultimo = ref([]);
-        let cara1 = "https://clarys.duckdns.org/faces/1.png";
-        let cara2 = "https://clarys.duckdns.org/faces/cara2.gif";
-        let cara3 = "https://clarys.duckdns.org/faces/3.png";
-        let cara4 = "https://clarys.duckdns.org/faces/4.png";
-        let cara5 = "https://clarys.duckdns.org/faces/cara5.gif";
-        let cara6 = "https://clarys.duckdns.org/faces/6.png";
+        let cara1 = "http://clarys.duckdns.org/faces/cara1.png";
+        let cara2 = "http://clarys.duckdns.org/faces/cara2.gif";
+        let cara3 = "http://clarys.duckdns.org/faces/3.png";
+        let cara4 = "http://clarys.duckdns.org/faces/4.png";
+        let cara5 = "http://clarys.duckdns.org/faces/cara5.gif";
+        let cara6 = "http://clarys.duckdns.org/faces/6.png";
 
         let este = ref();
         let id = ref([]);
@@ -163,7 +166,7 @@ export default {
         })
 
         const fetchEstados = () => {
-            axios.get('https://clarys.duckdns.org:3001/api/estado')
+            axios.get('http://clarys.duckdns.org:3001/api/estado')
                 .then(response => {
                     estado.value = response.data;
                     este.value = estado.value[0].estado;
@@ -174,17 +177,17 @@ export default {
         };
 
         const fetchRegistros = () => {
-            axios.get('https://clarys.duckdns.org:3001/api/dades')
+            axios.get('http://clarys.duckdns.org:3001/api/dades')
                 .then(response => {
                     registros.value = response.data;
                     ultimo.value = registros.value.reverse();
                     for (let i = 0; i < registros.value.length; i++) {
-                        horas[i] = ultimo.value[i].hora;
-                        tempAmb.value = ultimo.value[i].tempAmb;
-                        luz[i] = ultimo.value[i].luzAmb;
-                        humTierra[i] = ultimo.value[i].humTer;
-                        humAmbiente[i] = ultimo.value[i].humAmb;
-                        copyOfDynos[i] = tempAmb.value;               
+                       horas[i] = ultimo.value[i].hora;
+                       tempAmb.value = ultimo.value[i].tempAmb;
+                       luz[i] = ultimo.value[i].luzAmb;
+                       humTierra[i] = ultimo.value[i].humTer;
+                       humAmbiente[i] = ultimo.value[i].humAmb;
+                       copyOfDynos[i] = tempAmb.value;               
                     }
                     copyOfDynos = copyOfDynos.concat(tempAmb.value)
                 })
@@ -305,7 +308,8 @@ export default {
 
 
 
-        return { sizeScreenDesktop, sizeScreenMovil, acc, estado, registros, medicion, ultimo, cara1, cara2, cara3, cara4, cara5, cara6, face, este, id, tempAmb, copyOfDynos, luz, humTierra };
+        return { sizeScreenDesktop, sizeScreenMovil, acc, estado,
+             registros, medicion, ultimo, cara1, cara2, cara3, cara4, cara5, cara6, face, este, id, tempAmb, copyOfDynos, luz, humTierra };
     }
 
 }

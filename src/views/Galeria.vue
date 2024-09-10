@@ -47,12 +47,15 @@
             </div>
         </div>
         <br/><br/>
+
 </template>
 
 <script setup>
 
+
 </script>
 <script>
+
 export default {
     name: 'Sensores-1',
     setup(){

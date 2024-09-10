@@ -91,7 +91,7 @@ export default {
             document.body.style.zoom = "98%";
         })
         const fetchRegistros = () => {
-            axios.get('http://clarys.ddns.net:3000/api/dades')
+            axios.get('http://clarys.duckdns.org:3001/api/dades')
                 .then(response => {
                     registros.value = response.data;
                     ultimo.value = registros.value.reverse();

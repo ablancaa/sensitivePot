@@ -8,31 +8,31 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6" v-if="este == 1">
+        <div class="col-md-6" v-if="registros[0].estado == 1">
           <img :src="cara1" height="" class="polaroid" alt="Cara de interfaz" />
           <span class="msjCara">Observer!!</span>
         </div>
-        <div class="col-md-6" v-if="este == 2">
+        <div class="col-md-6" v-if="registros[0].estado == 2">
           <img :src="cara2" height="" class="polaroid" alt="Cara de interfaz" />
           <span class="msjCara">Happy</span>
         </div>
-        <div class="col-md-6" v-if="este == 3">
+        <div class="col-md-6" v-if="registros[0].estado == 3">
           <img :src="cara3" height="" class="polaroid" alt="Cara de interfaz" />
           <span class="msjCara">UUuffff!!!!</span>
         </div>
-        <div class="col-md-6" v-if="este == 4">
+        <div class="col-md-6" v-if="registros[0].estado == 4">
           <img :src="cara4" height="" class="polaroid" alt="Cara de interfaz" />
           <span class="msjCara">Sad</span>
         </div>
-        <div class="col-md-6" v-if="este == 5">
+        <div class="col-md-6" v-if="registros[0].estado == 5">
           <img :src="cara5" height="" class="polaroid" alt="Cara de interfaz" />
           <span class="msjCara">Sleeping</span>
         </div>
-        <div class="col-md-6" v-if="este == 6">
+        <div class="col-md-6" v-if="registros[0].estado == 6">
           <img :src="cara6" height="" class="polaroid" alt="Cara de interfaz" />
           <span class="msjCara">I have died</span>
         </div>
-        <div class="col-md-6" v-if="este == 7">
+        <div class="col-md-6" v-if="registros[0].estado == 7">
           <img :src="cara7" height="" class="polaroid" alt="Cara de interfaz" />
         </div>
         <div class="col-md-5">
@@ -40,20 +40,23 @@
           <div class="marcoReloj centrarGrafico">
             <Reloj />
           </div>
-          <div class="col-md-5 marcoMensaje" v-if="este == 1">
-            <h4 class="espacioTop">Hola, qué tal??</h4>
+          <div class="col-md-5 marcoMensaje" v-if="registros[0].estado == 1">
+            <h4 class="espacioTop">{{estates[0].descripcion}}</h4>
           </div>
-          <div class="col-md-5 marcoMensaje" v-if="este == 2">
-            <h4 class="espacioTop">La luz es agradable y estoy bien de agua!!</h4>
+          <div class="col-md-5 marcoMensaje" v-if="registros[0].estado == 2">
+            <h4 class="espacioTop">{{estates[1].descripcion}}</h4>
           </div>
-          <div class="col-md-5 marcoMensaje" v-if="este == 3">
-            <h4 class="espacioTop">Creo que me estoy secando!!</h4>
+          <div class="col-md-5 marcoMensaje" v-if="registros[0].estado == 3">
+            <h4 class="espacioTop">{{estates[2].descripcion}}</h4>
           </div>
-          <div class="col-md-5 marcoMensaje" v-if="este == 4">
-            <h4 class="espacioTop">Por Favor!! Riégame!!! Riégame!!</h4>
+          <div class="col-md-5 marcoMensaje" v-if="registros[0].estado == 4">
+            <h4 class="espacioTop">{{estates[3].descripcion}}</h4>
           </div>
-          <div class="col-md-5 marcoMensaje" v-if="este == 5">
-            <h4 class="espacioTop">No hay mucha luz. Hora de ir a dormir!!</h4>
+          <div class="col-md-5 marcoMensaje" v-if="registros[0].estado == 5">
+            <h4 class="espacioTop">{{estates[4].descripcion}}</h4>
+          </div>
+          <div class="col-md-5 marcoMensaje" v-if="registros[0].estado == 6">
+            <h4 class="espacioTop">{{estates[5].descripcion}}</h4>
           </div>
     </div><!-- DIV TODO -->
     
@@ -179,19 +182,19 @@ export default {
   components: { Reloj },
   setup() {
     const sensitivePot = "Sensitive Pot";
-    const img = "https://localhost/src/assets/logo.png";
+    const img = "http://localhost/src/assets/logo.png";
 
     let registros = ref([{}]);
     let estates = ref([]);
     let medicion = ref([]);
     let ultimo = ref([]);
-    let cara1 = "https://clarys.duckdns.org/faces/1.png";
-    let cara2 = "https://clarys.duckdns.org/faces/cara2.gif";
-    let cara3 = "https://clarys.duckdns.org/faces/3.png";
-    let cara4 = "https://clarys.duckdns.org/faces/4.png";
-    let cara5 = "https://clarys.duckdns.org/faces/cara5.gif";
-    let cara6 = "https://clarys.duckdns.org/faces/6.png";
-    let cara7 = "https://clarys.duckdns.org/faces/7.png";
+    let cara1 = "http://clarys.duckdns.org/faces/cara1.png";
+    let cara2 = "http://clarys.duckdns.org/faces/cara2.gif";
+    let cara3 = "http://clarys.duckdns.org/faces/3.png";
+    let cara4 = "http://clarys.duckdns.org/faces/4.png";
+    let cara5 = "http://clarys.duckdns.org/faces/cara5.gif";
+    let cara6 = "http://clarys.duckdns.org/faces/6.png";
+    let cara7 = "http://clarys.duckdns.org/faces/7.png";
     let este = ref();
     let id = ref([]);
     let tempAmb = ref([]);
@@ -199,6 +202,7 @@ export default {
     let luz = [];
     let humTierra = [];
     let humAmbiente = [];
+    //let estado = [];
     let horas = [];
     let sizeScreenMovil = false;
     let acc = document.getElementsByClassName("accordion");
@@ -242,11 +246,11 @@ export default {
 
     const fetchEstados = () => {
       axios
-        .get("https://clarys.duckdns.org:3001/api/estado")
+        .get("http://clarys.duckdns.org:3001/api/estado")
         .then((response) => {
           estates.value = response.data;
-          este.value = estates.value[0].estado;
-          console.log(estates.value[0].estado)
+          //este.value = estates.value[0].estado;
+          console.log(estates.value)
         })
         .catch((error) => {
           console.error(error);
@@ -255,7 +259,7 @@ export default {
 
     const fetchRegistros = () => {
       axios
-        .get("https://clarys.duckdns.org:3001/api/dades")
+        .get("http://clarys.duckdns.org:3001/api/dades")
         .then((response) => {
           registros.value = response.data;
           ultimo.value = registros.value.reverse();
@@ -269,6 +273,7 @@ export default {
             copyOfDynos[i] = tempAmb.value;
           }
           copyOfDynos = copyOfDynos.concat(tempAmb.value)
+          console.log(registros.value)
         })
         .catch((error) => {
           console.error(error);
@@ -554,8 +559,8 @@ table,td,tr {
 }
 .msjCara{
   position: absolute;
-  margin-top: 194px;
-  margin-left: -155px;
+  margin-top: 160px;
+  margin-left: -165px;
   font-family: Arial, Helvetica, sans-serif;
 }
 button.accordion {
